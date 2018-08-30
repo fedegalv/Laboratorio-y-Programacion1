@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1535633368 source:d:\galvan\ej_funcion 2\main.c
+	<stdio.h>
+	<stdlib.h>
+
