@@ -17,17 +17,17 @@ int main()
         switch(opcion)
         {
         case 'A':
-            printf("Dando de alta el usuario.../n");
+            printf("Dando de alta el usuario...");
             break;
         case 'B':
-            printf("Dando de baja el usuario.../n");
+            printf("Dando de baja el usuario...");
             break;
         case 'M':
-            printf("Modificando el usuario.../n");
+            printf("Modificando el usuario...");
             break;
         }
         system("pause"); // pausa el programa, para limpiar
         system("cls"); // se limpia la consola
-    }while(opcion =! 'S');
+    }while(opcion != 'S');
     return 0;
 }
