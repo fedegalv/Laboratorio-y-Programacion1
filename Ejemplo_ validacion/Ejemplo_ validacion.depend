@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1535721832 source:d:\galvan\laboratorio-y-programacion1\ejemplo_ validacion\main.c
+	<stdio.h>
+	<stdlib.h>
+	"UTN_INPUT.h"
+
+1535721679 d:\galvan\laboratorio-y-programacion1\ejemplo_ validacion\utn_input.h
+
+1535721964 source:d:\galvan\laboratorio-y-programacion1\ejemplo_ validacion\utn_input.c
+	<stdio.h>
+	<stdlib.h>
+	"UTN_INPUT.h"
+
