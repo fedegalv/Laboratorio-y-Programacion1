@@ -2,12 +2,12 @@
 <CodeBlocks_project_file>
 	<FileVersion major="1" minor="6" />
 	<Project>
-		<Option title="Ejemplo_ validacion" />
+		<Option title="Check_integer" />
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
 		<Build>
 			<Target title="Debug">
-				<Option output="bin/Debug/Ejemplo_ validacion" prefix_auto="1" extension_auto="1" />
+				<Option output="bin/Debug/Check_integer" prefix_auto="1" extension_auto="1" />
 				<Option object_output="obj/Debug/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
@@ -16,7 +16,7 @@
 				</Compiler>
 			</Target>
 			<Target title="Release">
-				<Option output="bin/Release/Ejemplo_ validacion" prefix_auto="1" extension_auto="1" />
+				<Option output="bin/Release/Check_integer" prefix_auto="1" extension_auto="1" />
 				<Option object_output="obj/Release/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
@@ -31,10 +31,6 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
-		<Unit filename="UTN_INPUT.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="UTN_INPUT.h" />
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>

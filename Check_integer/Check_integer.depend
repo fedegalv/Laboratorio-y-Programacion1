@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1535724707 source:d:\galvan\laboratorio-y-programacion1\check_integer\main.c
+	<stdio.h>
+	<stdlib.h>
+
