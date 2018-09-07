@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1536326431 source:d:\galvan\cadenas\main.c
+	<stdio.h>
+	<stdlib.h>
+

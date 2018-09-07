@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1536243016 source:d:\galvan\prueba_puntero\main.c
+	<stdio.h>
+	<stdlib.h>
+

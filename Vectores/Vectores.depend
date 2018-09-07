@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1536239608 source:d:\galvan\vectores\main.c
+	<stdio.h>
+	<stdlib.h>
+

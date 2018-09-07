@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1535119071 source:d:\galvan\ejercicio10while\main.c
+	<stdio.h>
+	<stdlib.h>
+	<limits.h>
+

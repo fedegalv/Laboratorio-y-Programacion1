@@ -1,0 +1,101 @@
+# depslib dependency file v1.0
+1535823116 source:e:\programacion\laboratorio-y-programacion1\tp_1\operaciones_matematicas.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	"OPERACIONES_MATEMATICAS.h"
+	"MENU.h"
+
+1535815083 e:\programacion\laboratorio-y-programacion1\tp_1\operaciones_matematicas.h
+
+1535818392 source:e:\programacion\laboratorio-y-programacion1\tp_1\main.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	"OPERACIONES_MATEMATICAS.h"
+	"MENU.h"
+
+1535822830 e:\programacion\laboratorio-y-programacion1\tp_1\menu.h
+
+1535823250 source:e:\programacion\laboratorio-y-programacion1\tp_1\menu.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	"OPERACIONES_MATEMATICAS.h"
+	"MENU.h"
+
+1536083296 source:e:\programacion\laboratorio-y-programacion1\tp_1_alter\tp_1\main.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	"OPERACIONES_MATEMATICAS.h"
+	"MENU.h"
+
+1536024864 e:\programacion\laboratorio-y-programacion1\tp_1_alter\tp_1\operaciones_matematicas.h
+
+1536084716 e:\programacion\laboratorio-y-programacion1\tp_1_alter\tp_1\menu.h
+
+1536084136 source:e:\programacion\laboratorio-y-programacion1\tp_1_alter\tp_1\menu.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	"OPERACIONES_MATEMATICAS.h"
+	"MENU.h"
+
+1536084136 source:e:\programacion\laboratorio-y-programacion1\tp_1_alter\tp_1\operaciones_matematicas.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	"OPERACIONES_MATEMATICAS.h"
+	"MENU.h"
+
+1536090436 source:e:\programacion\laboratorio-y-programacion1\tp_1 v3\tp_1\operaciones_matematicas.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	"OPERACIONES_MATEMATICAS.h"
+	"MENU.h"
+
+1536086541 e:\programacion\laboratorio-y-programacion1\tp_1 v3\tp_1\operaciones_matematicas.h
+
+1536088135 e:\programacion\laboratorio-y-programacion1\tp_1 v3\tp_1\menu.h
+
+1536089398 source:e:\programacion\laboratorio-y-programacion1\tp_1 v3\tp_1\main.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	"OPERACIONES_MATEMATICAS.h"
+	"MENU.h"
+
+1536090358 source:e:\programacion\laboratorio-y-programacion1\tp_1 v3\tp_1\menu.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	"OPERACIONES_MATEMATICAS.h"
+	"MENU.h"
+
+1536094374 source:e:\programacion\laboratorio-y-programacion1\tp_1 v4\tp_1\menu.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	"OPERACIONES_MATEMATICAS.h"
+	"MENU.h"
+
+1536093171 e:\programacion\laboratorio-y-programacion1\tp_1 v4\tp_1\operaciones_matematicas.h
+
+1536107289 e:\programacion\laboratorio-y-programacion1\tp_1 v4\tp_1\menu.h
+
+1536093172 source:e:\programacion\laboratorio-y-programacion1\tp_1 v4\tp_1\main.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	"OPERACIONES_MATEMATICAS.h"
+	"MENU.h"
+
+1536094941 source:e:\programacion\laboratorio-y-programacion1\tp_1 v4\tp_1\operaciones_matematicas.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	"OPERACIONES_MATEMATICAS.h"
+	"MENU.h"
+

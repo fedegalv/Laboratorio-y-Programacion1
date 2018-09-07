@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1536325094 source:d:\galvan\vectores_2\array.c
+	<stdio.h>
+	<stdlib.h>
+	"Array.h"
+
+1536324401 d:\galvan\vectores_2\array.h
+
+1536324957 source:d:\galvan\vectores_2\main.c
+	<stdio.h>
+	<stdlib.h>
+	"Array.h"
+
