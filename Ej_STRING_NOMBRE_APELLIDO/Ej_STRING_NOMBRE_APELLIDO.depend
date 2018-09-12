@@ -1,15 +1,16 @@
 # depslib dependency file v1.0
-1536722476 source:e:\programacion\10 septiembre\ej_string_nombre_apellido\main.c
+1536775708 source:e:\programacion\10 septiembre\ej_string_nombre_apellido\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	<ctype.h>
 	"FUNCIONES.h"
 
-1536720926 source:e:\programacion\10 septiembre\ej_string_nombre_apellido\funciones.c
+1536777274 source:e:\programacion\10 septiembre\ej_string_nombre_apellido\funciones.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
+	<ctype.h>
 
-1536720617 e:\programacion\10 septiembre\ej_string_nombre_apellido\funciones.h
+1536775708 e:\programacion\10 septiembre\ej_string_nombre_apellido\funciones.h
 
