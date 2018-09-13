@@ -8,7 +8,7 @@ int main()
 {
     char nombre[20];
     char apellido[20];
-    char nombreApellido[20];
+    char nombreApellido[41];
     ingresoNombre(nombre);
     ingresoApellido(apellido);
     upperPrimeraLetra(nombre);
