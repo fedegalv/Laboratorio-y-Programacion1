@@ -9,6 +9,7 @@ int main()
 {
     char nombre[T][50];
     int respuesta;
+    int respuestaInformes;
     int legajo[T]= {0};
     int nota1[T]= {0};
     int nota2[T]= {0};
@@ -52,6 +53,33 @@ int main()
             mostrarResultados(nombre,legajo,sexo,nota1,nota2,nota3,promedio,T);
             break;
         case 4:
+            printf("SELECCIONE TIPO DE INFORME\n");
+            printf("1-Cantidad de alumnos con 6 o mas de promedio\n");
+            printf("2- El/los alumnos con mejor promedio\n");
+            printf("3- La/las alumnas con peor promedio\n");
+            printf("4- Cantidad alumnos aprobados y desaprobados\n");
+            printf("SELECCIONA UNA OPCION: ");
+            scanf("%d",&respuestaInformes);
+            switch(respuestaInformes)
+            {
+            case 1:
+                alumnosPromedioMayor6(legajo,promedio);
+                break;
+            case 1:
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+
+            case 4:
+                break;
+            default:
+                break;
+
+            }
+
+
             break;
         case 5:
             break;

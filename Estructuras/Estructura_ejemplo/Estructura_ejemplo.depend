@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1536930335 source:d:\galvan\laboratorio-y-programacion1\estructuras\estructura_ejemplo\main.c
+	<stdio.h>
+	<stdlib.h>
+

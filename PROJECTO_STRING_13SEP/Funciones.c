@@ -229,3 +229,8 @@ int modificaAlumnos(char nombre[][50], int nota1[],int nota2[],int nota3[],float
 
     return 0;
 }
+
+int alumnosPromedioMayor6(int legajo[],float promedio[])
+{
+
+}
