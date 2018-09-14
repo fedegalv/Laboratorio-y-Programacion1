@@ -13,3 +13,18 @@
 
 1536720617 e:\programacion\10 septiembre\ej_string_nombre_apellido\funciones.h
 
+1536777733 source:e:\programacion\10 septiembre\laboratorio-y-programacion1\strings\ej_string_nombre_apellido\funciones.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+
+1536861726 source:e:\programacion\10 septiembre\laboratorio-y-programacion1\strings\ej_string_nombre_apellido\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"FUNCIONES.h"
+
+1536775708 e:\programacion\10 septiembre\laboratorio-y-programacion1\strings\ej_string_nombre_apellido\funciones.h
+

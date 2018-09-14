@@ -1,0 +1,16 @@
+# depslib dependency file v1.0
+1536888056 source:e:\programacion\10 septiembre\projecto_string_13sep\main.c
+	<stdio.h>
+	<stdlib.h>
+	"Funciones.h"
+	<string.h>
+
+1536888056 e:\programacion\10 septiembre\projecto_string_13sep\funciones.h
+
+1536889600 source:e:\programacion\10 septiembre\projecto_string_13sep\funciones.c
+	<stdio.h>
+	<stdlib.h>
+	"Funciones.h"
+	<string.h>
+	<ctype.h>
+
