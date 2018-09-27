@@ -1,5 +1,24 @@
 # depslib dependency file v1.0
-1536930335 source:d:\galvan\laboratorio-y-programacion1\estructuras\estructura_ejemplo\main.c
+1538055598 source:d:\galvan\laboratorio-y-programacion1\estructuras\estructura_ejemplo\main.c
 	<stdio.h>
 	<stdlib.h>
+	<string.h>
+	"Alumnos.h"
+
+1538055667 source:d:\galvan\laboratorio-y-programacion1\estructuras\estructura_ejemplo\alumnos.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"Alumnos.h"
+
+1538055509 d:\galvan\laboratorio-y-programacion1\estructuras\estructura_ejemplo\alumnos.h
+
+1538060141 source:d:\galvan\laboratorio-y-programacion1\estructuras\estructura_ejemplo\cursos.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"Alumnos.h"
+	"Cursos.h"
+
+1538060214 d:\galvan\laboratorio-y-programacion1\estructuras\estructura_ejemplo\cursos.h
 
