@@ -29,3 +29,18 @@
 	"Funciones.h"
 	<string.h>
 
+1537822064 source:e:\programacion\laboratorio-y-programacion1\projecto_string_13sep\funciones.c
+	<stdio.h>
+	<stdlib.h>
+	"Funciones.h"
+	<string.h>
+	<ctype.h>
+
+1537822064 e:\programacion\laboratorio-y-programacion1\projecto_string_13sep\funciones.h
+
+1537822064 source:e:\programacion\laboratorio-y-programacion1\projecto_string_13sep\main.c
+	<stdio.h>
+	<stdlib.h>
+	"Funciones.h"
+	<string.h>
+

@@ -1,0 +1,16 @@
+# depslib dependency file v1.0
+1537225580 source:c:\users\alumno\desktop\estructuras\main.c
+	<stdio.h>
+	<stdlib.h>
+
+1537233329 source:e:\programacion\laboratorio-y-programacion1\estructuras\estructuras\alumno.c
+	<stdio.h>
+	<string.h>
+	"Alumno.h"
+
+1537233329 e:\programacion\laboratorio-y-programacion1\estructuras\estructuras\alumno.h
+
+1537233329 source:e:\programacion\laboratorio-y-programacion1\estructuras\estructuras\main.c
+	<stdlib.h>
+	"Alumno.h"
+
