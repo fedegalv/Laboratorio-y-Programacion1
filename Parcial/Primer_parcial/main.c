@@ -1,10 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "Propietarios.h"
+#include "Automoviles.h"
 #include "Funciones_aux.h"
 
 
+#define CANT_PROP 20
 #define LUGAR_DISP 20
+#define VALIDO 1
+#define INVALIDO 0
+#define NO_ENCONTRADO -1
 int main()
 {
 
@@ -13,10 +18,13 @@ int main()
     int ingresoOK;
     int idProvista;
     int idEncontrada;
+    int movilOK;
+    int idPropietarioAuto;
     cantProp = 5;
-    sPropietario listaPropietarios[LUGAR_DISP];
+    sPropietario listaPropietarios[CANT_PROP];
+    sAutomovil listaAutomoviles[LUGAR_DISP];
 
-    inicializarPropEstado(listaPropietarios,LUGAR_DISP);
+    inicializarPropEstado(listaPropietarios,CANT_PROP);
     inicializarPropietariosHardcoded(listaPropietarios);
     do
     {
@@ -25,14 +33,16 @@ int main()
                "\n2- MODIFICAR DATOS DEL PROPIETARIO"
                "\n3- BAJA DEL PROPIETARIO"
                "\n4- LISTAR PROPIETARIOS"
+               "\n5- INGRESO DE AUTOMOVIL"
+               "\n6- EGRESO DE AUTOMOVIL"
                "\n10- SALIR PROGRAMA\n"
                "\nOPCIONES SELECCIONADA: ");
         scanf("%d",&opcion);
         switch(opcion)
         {
         case 1:
-            ingresoOK= pedirDatos(listaPropietarios,LUGAR_DISP);
-            if(ingresoOK == 1)
+            ingresoOK= pedirDatos(listaPropietarios,CANT_PROP);
+            if(ingresoOK == VALIDO)
             {
                 cantProp++;
                 printf("INGRESO REALIZADO CON EXITO...\n");
@@ -44,12 +54,12 @@ int main()
             {
                 printf("INGRESADO A MODULO MODIFICACION...\n");
                 limpiarPantalla();
-                mostrarListaPropietarios(listaPropietarios,LUGAR_DISP);
+                mostrarListaPropietarios(listaPropietarios,CANT_PROP);
                 printf("INGRESE ID A MODIFICAR: ");
                 idProvista= ingresoNumero();
                 fflush(stdin);
-                idEncontrada= buscarPropietario(listaPropietarios,LUGAR_DISP,idProvista);
-                if(idEncontrada == -1)
+                idEncontrada= buscarPropietario(listaPropietarios,CANT_PROP,idProvista);
+                if(idEncontrada == NO_ENCONTRADO)
                 {
                     printf("ID NO ENCONTRADA O VALIDA\n");
                 }
@@ -70,12 +80,12 @@ int main()
             {
                 printf("INGRESADO A MODULO BAJA DE PROPIETARIO...\n");
                 limpiarPantalla();
-                mostrarListaPropietarios(listaPropietarios,LUGAR_DISP);
+                mostrarListaPropietarios(listaPropietarios,CANT_PROP);
                 printf("INGRESE ID A DAR DE BAJA: ");
                 idProvista= ingresoNumero();
                 fflush(stdin);
-                idEncontrada= buscarPropietario(listaPropietarios,LUGAR_DISP,idProvista);
-                if(idEncontrada == -1)
+                idEncontrada= buscarPropietario(listaPropietarios,CANT_PROP,idProvista);
+                if(idEncontrada == NO_ENCONTRADO)
                 {
                     printf("ID NO ENCONTRADA O VALIDA\n");
                 }
@@ -94,13 +104,34 @@ int main()
         case 4:
             if(cantProp >=1)
             {
-                mostrarListaPropietarios(listaPropietarios,LUGAR_DISP);
+                mostrarListaPropietarios(listaPropietarios,CANT_PROP);
             }
             else
             {
                 printf("NO SE INGRESO NADA PARA MOSTRAR...\n");
             }
             limpiarPantalla();
+            break;
+        case 5:
+            do
+            {
+                movilOK=INVALIDO;
+                printf("Ingrese ID del propietario del auto: ");
+                idPropietarioAuto=ingresoNumero();
+                idEncontrada= buscarPropietario(listaPropietarios,CANT_PROP,idPropietarioAuto);
+                if(idEncontrada == NO_ENCONTRADO)
+                {
+                    printf("ID NO ENCONTRADA O VALIDA\n");
+                }
+                else
+                {
+                    pedirDatosAutomovil(listaAutomoviles,idEncontrada);
+                    movilOK= VALIDO;
+                }
+            }
+            while(movilOK == INVALIDO);
+                break;
+        case 6:
             break;
 
         }

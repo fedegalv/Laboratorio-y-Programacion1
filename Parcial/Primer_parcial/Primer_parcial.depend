@@ -41,9 +41,21 @@
 
 1539280397 e:\programacion\laboratorio-y-programacion1\parcial\primer_parcial\funciones_aux.h
 
-1539284350 source:e:\programacion\laboratorio-y-programacion1\parcial\primer_parcial\main.c
+1539288953 source:e:\programacion\laboratorio-y-programacion1\parcial\primer_parcial\main.c
 	<stdio.h>
 	<stdlib.h>
 	"Propietarios.h"
+	"Automoviles.h"
 	"Funciones_aux.h"
+
+1539289180 source:e:\programacion\laboratorio-y-programacion1\parcial\primer_parcial\automoviles.c
+	<stdio.h>
+	<stdlib.h>
+	"string.h"
+	<ctype.h>
+	"Automoviles.h"
+	"Funciones_aux.h"
+	"Propietarios.h"
+
+1539289180 e:\programacion\laboratorio-y-programacion1\parcial\primer_parcial\automoviles.h
 

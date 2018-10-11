@@ -1,0 +1,11 @@
+typedef struct
+{
+    int idPropietario;
+    char patente[51];
+    int marca;
+    int estado;
+
+} sAutomovil;
+void inicializarAutosEstado(sAutomovil [], int );
+int pedirDatosAutomovil(sAutomovil [], int);
+int agregarAutomovil(sAutomovil [], int , char [], int );
