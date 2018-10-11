@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1539280711 source:e:\programacion\laboratorio-y-programacion1\practicas\asdsada\main.c
+	<stdio.h>
+	<stdlib.h>
+	"string.h"
+	<ctype.h>
+

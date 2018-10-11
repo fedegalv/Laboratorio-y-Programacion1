@@ -23,3 +23,27 @@
 	"Propietarios.h"
 	"Funciones_aux.h"
 
+1539283197 source:e:\programacion\laboratorio-y-programacion1\parcial\primer_parcial\funciones_aux.c
+	<stdio.h>
+	<stdlib.h>
+	"string.h"
+	<ctype.h>
+
+1539284397 source:e:\programacion\laboratorio-y-programacion1\parcial\primer_parcial\propietarios.c
+	<stdio.h>
+	<stdlib.h>
+	"string.h"
+	<ctype.h>
+	"Propietarios.h"
+	"Funciones_aux.h"
+
+1539282872 e:\programacion\laboratorio-y-programacion1\parcial\primer_parcial\propietarios.h
+
+1539280397 e:\programacion\laboratorio-y-programacion1\parcial\primer_parcial\funciones_aux.h
+
+1539284350 source:e:\programacion\laboratorio-y-programacion1\parcial\primer_parcial\main.c
+	<stdio.h>
+	<stdlib.h>
+	"Propietarios.h"
+	"Funciones_aux.h"
+

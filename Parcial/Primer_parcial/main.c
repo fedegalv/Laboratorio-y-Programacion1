@@ -35,39 +35,66 @@ int main()
             if(ingresoOK == 1)
             {
                 cantProp++;
-                printf("INGRESO REALIZADO CON EXITO...");
+                printf("INGRESO REALIZADO CON EXITO...\n");
             }
             limpiarPantalla();
             break;
         case 2:
             if(cantProp >=1)
             {
+                printf("INGRESADO A MODULO MODIFICACION...\n");
+                limpiarPantalla();
+                mostrarListaPropietarios(listaPropietarios,LUGAR_DISP);
                 printf("INGRESE ID A MODIFICAR: ");
                 idProvista= ingresoNumero();
                 fflush(stdin);
                 idEncontrada= buscarPropietario(listaPropietarios,LUGAR_DISP,idProvista);
                 if(idEncontrada == -1)
                 {
-                    printf("ID NO ENCONTRADA O VALIDA");
+                    printf("ID NO ENCONTRADA O VALIDA\n");
                 }
                 else
                 {
-                    printf("ID ENCONTRADA");
+                    //printf("ID ENCONTRADA");
                     modificarPropietario(listaPropietarios,idEncontrada);
                 }
             }
             else
             {
-                printf("NO SE INGRESO NADA PARA MOSTRAR...");
+                printf("NO SE INGRESO NADA PARA MOSTRAR...\n");
             }
             limpiarPantalla();
             break;
         case 3:
+            if(cantProp >=1)
+            {
+                printf("INGRESADO A MODULO BAJA DE PROPIETARIO...\n");
+                limpiarPantalla();
+                mostrarListaPropietarios(listaPropietarios,LUGAR_DISP);
+                printf("INGRESE ID A DAR DE BAJA: ");
+                idProvista= ingresoNumero();
+                fflush(stdin);
+                idEncontrada= buscarPropietario(listaPropietarios,LUGAR_DISP,idProvista);
+                if(idEncontrada == -1)
+                {
+                    printf("ID NO ENCONTRADA O VALIDA\n");
+                }
+                else
+                {
+                    //printf("ID ENCONTRADA\n");
+                    bajaPropietarios(listaPropietarios,idEncontrada);
+                }
+            }
+            else
+            {
+                printf("NO SE INGRESO NADA PARA MOSTRAR...\n");
+            }
+            limpiarPantalla();
             break;
         case 4:
             if(cantProp >=1)
             {
-                mostrarListaPropietarios(listaPropietarios,cantProp);
+                mostrarListaPropietarios(listaPropietarios,LUGAR_DISP);
             }
             else
             {

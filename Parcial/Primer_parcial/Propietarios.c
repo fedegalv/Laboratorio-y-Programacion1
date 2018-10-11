@@ -12,7 +12,8 @@ int pedirDatos(sPropietario listaPropietarios[], int tam)
     char nombre[51];
     char apellido[51];
     char direccion[51];
-    long int tarjeta;
+    char tarjeta[51];
+    int tarjetaValida;
     int opRealizada= -1;
     int i;
     do
@@ -39,7 +40,7 @@ int pedirDatos(sPropietario listaPropietarios[], int tam)
         fflush(stdin);
     }
     while(banderaRepetido == 1);
-    printf("%d",idPropietario);
+    //printf("%d",idPropietario);
     printf("Ingrese nombre del propietario: ");
     gets(nombre);
     verificarCadena(nombre);
@@ -55,14 +56,18 @@ int pedirDatos(sPropietario listaPropietarios[], int tam)
     printf("Ingrese direccion del propietario: ");
     gets(direccion);
     fflush(stdin);
-
-    printf("Ingrese numero de tarjeta de credito: ");
-    tarjeta= ingresoNumero();
-    //verificarTarjeta(tarjeta);
+    do
+    {
+        printf("Ingrese numero de tarjeta de credito(16 digitos) : ");
+        gets(tarjeta);
+        tarjetaValida=verificarTarjeta(tarjeta);
+        fflush(stdin);
+    }
+    while(tarjetaValida == 0);
     opRealizada= agregarPropietarios(listaPropietarios,idPropietario,nombre,apellido,direccion,tarjeta);
     return opRealizada;
 }
-int agregarPropietarios(sPropietario listaPropietarios [], int idPropietario, char nombre[], char apellido[], char direccion [],long int tarjeta)
+int agregarPropietarios(sPropietario listaPropietarios [], int idPropietario, char nombre[], char apellido[], char direccion [],char tarjeta[])
 {
     int operacionCompletada;
     int idPr;
@@ -72,7 +77,7 @@ int agregarPropietarios(sPropietario listaPropietarios [], int idPropietario, ch
     listaPropietarios[idPr].idPropietario= idPr;
     strcpy(listaPropietarios[idPr].direccion, direccion);
     listaPropietarios[idPr].estado= 1;
-    listaPropietarios[idPr].numeroTarjeta = tarjeta;
+    strcpy(listaPropietarios[idPr].numeroTarjeta, tarjeta);
     strcpy(listaPropietarios[idPr].nombre, nombre);
     strcpy(listaPropietarios[idPr].apellido, apellido);
 
@@ -98,15 +103,16 @@ int buscarPropietario ( sPropietario* listaPropietarios, int tam, int idProvista
 int modificarPropietario(sPropietario* listaPropietarios, int idEncontrado)
 {
     char respuestaContinuar;
-    long int nuevaTarjeta;
+    char nuevaTarjeta[53];
+    int tarjetaValida;
 
     fflush(stdin);
-    printf("MODIFICACION DE DATOS\n");
+    printf("MODIFICACION DE DATOS\n\n");
     printf("%4s %10s %10s %10s \n", "ID", "Nombre","Apellido", "NRO TARJETA");
-    printf("%4d %10s %10s %8ld \n", listaPropietarios[idEncontrado].idPropietario,listaPropietarios[idEncontrado].nombre,listaPropietarios[idEncontrado].apellido, listaPropietarios[idEncontrado].numeroTarjeta);
+    printf("%4d %10s %10s %10s \n\n", listaPropietarios[idEncontrado].idPropietario,listaPropietarios[idEncontrado].nombre,listaPropietarios[idEncontrado].apellido, listaPropietarios[idEncontrado].numeroTarjeta);
 
 
-    printf("DATO A MODIFICAR: TARJETA DE CREDITO");
+    printf("DATO A MODIFICAR: TARJETA DE CREDITO\n");
     printf("DESEA CONTINUAR? (S)i o (N)o \nOPCION SELECCIONADA: ");
     scanf("%c",&respuestaContinuar);
 
@@ -115,20 +121,47 @@ int modificarPropietario(sPropietario* listaPropietarios, int idEncontrado)
     respuestaContinuar=toupper(respuestaContinuar);
     if(respuestaContinuar == 'S')
     {
-        printf("INGRESE NUEVO NUMERO TARJETA: ");
-        nuevaTarjeta=ingresoNumero();
-        listaPropietarios[idEncontrado].idPropietario= nuevaTarjeta;
+        do
+        {
+            printf("Ingrese nuevo numero de tarjeta: ");
+            gets(nuevaTarjeta);
+            tarjetaValida=verificarTarjeta(nuevaTarjeta);
+            fflush(stdin);
+        }while(tarjetaValida == 0);
+        strcpy(listaPropietarios[idEncontrado].numeroTarjeta, nuevaTarjeta);
         printf("DATO MODIFICADO CON EXITO...\n");
-        limpiarPantalla();
-
     }
     else
     {
         printf("Cancelando...\n");
-        limpiarPantalla();
     }
 
     return 0;
+}
+
+int bajaPropietarios(sPropietario listaPropietarios[], int idProvisto)
+{
+    int operacionCompletada;
+    operacionCompletada = -1; // SE PONE POR DEFAULT COMO INVALIDO
+    char respuestaContinuar;
+    printf("ESTA A PUNTO DE DAR DE BAJA:\n ID: %d\nNOMBRE: %s\nAPELLIDO: %s\n", listaPropietarios[idProvisto].idPropietario, listaPropietarios[idProvisto].nombre,
+           listaPropietarios[idProvisto].apellido);
+    printf("DESEA CONTINUAR? (S)i o (N)o \nOPCION SELECCIONADA: ");
+    scanf("%c",&respuestaContinuar);
+
+    fflush(stdin);
+    respuestaContinuar=toupper(respuestaContinuar);
+    if(respuestaContinuar == 'S')
+    {
+        listaPropietarios[idProvisto].estado= 0;
+        printf("BAJA EXITOSA\n");
+    }
+    else
+    {
+        printf("Cancelando...\n");
+        operacionCompletada = -1;
+    }
+    return operacionCompletada;
 }
 
 void inicializarPropEstado(sPropietario listaPropietarios[], int tam)
@@ -143,17 +176,17 @@ void inicializarPropEstado(sPropietario listaPropietarios[], int tam)
 void inicializarPropietariosHardcoded(sPropietario listaPropietarios[])
 {
     int id[5] = {1,2,3,4,5};
-    char nombre[5][51]= {"juan","maria","pedro","luis","romina"};
-    char apellido[5][51]= {"perez","berticelli","pasos","santana","paciel"};
+    char nombre[5][51]= {"Juan","Maria","Pedro","Luis","Romina"};
+    char apellido[5][51]= {"Perez","Berticelli","Pasos","Santana","Paciel"};
     char direccion[5][51]= {"Av. vilbaso 2121","Las piedritas 788","Pueyrredon 4411","Bustos 4654","Av. Mallorca 2222",};
-    long int numeroTarjeta[5]= {123456789,321654987,123987654,123654982,123654789};
+    char numeroTarjeta[5][53]= {"1234567891565478","456987413265897457","1265478956412354","13658974589569845","1236598741478547"};
     int i;
 
-    for(i=0; i<10; i++)
+    for(i=0; i<5; i++)
     {
         listaPropietarios[i].idPropietario=id[i];
         listaPropietarios[i].estado = 1;
-        listaPropietarios[i].numeroTarjeta= numeroTarjeta[i];
+        strcpy(listaPropietarios[i].numeroTarjeta, numeroTarjeta[i]);
         strcpy(listaPropietarios[i].nombre, nombre[i]);
         strcpy(listaPropietarios[i].apellido, apellido[i]);
         strcpy(listaPropietarios[i].direccion, direccion[i]);
@@ -163,12 +196,12 @@ void inicializarPropietariosHardcoded(sPropietario listaPropietarios[])
 void mostrarListaPropietarios(sPropietario listaPropietarios[], int tam)
 {
     int i;
-    printf("%s %18s %18s %18s %18s\n","ID","NOMBRE", "APELLIDO","DIRECCION","NUMERO TARJETA");
+    printf("%s %15s %24s %24s %30s\n","ID","NOMBRE", "APELLIDO","DIRECCION","NUMERO TARJETA");
     for( i=0; i<tam; i++)
     {
         if(listaPropietarios[i].estado == 1) // SE PODRIA REMOVER YA QUE POR DEFECTOS TODOS LOS ESTADOS SON INICIALIZADOS EN 1
         {
-            printf("%d %18s %18s %18s %20ld\n",listaPropietarios[i].idPropietario,listaPropietarios[i].nombre,
+            printf("%d %15s %24s %24s %30s \n",listaPropietarios[i].idPropietario,listaPropietarios[i].nombre,
                    listaPropietarios[i].apellido, listaPropietarios[i].direccion, listaPropietarios[i].numeroTarjeta);
         }
     }
