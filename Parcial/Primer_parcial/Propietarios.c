@@ -127,7 +127,8 @@ int modificarPropietario(sPropietario* listaPropietarios, int idEncontrado)
             gets(nuevaTarjeta);
             tarjetaValida=verificarTarjeta(nuevaTarjeta);
             fflush(stdin);
-        }while(tarjetaValida == 0);
+        }
+        while(tarjetaValida == 0);
         strcpy(listaPropietarios[idEncontrado].numeroTarjeta, nuevaTarjeta);
         printf("DATO MODIFICADO CON EXITO...\n");
     }
@@ -204,6 +205,14 @@ void mostrarListaPropietarios(sPropietario listaPropietarios[], int tam)
             printf("%d %15s %24s %24s %30s \n",listaPropietarios[i].idPropietario,listaPropietarios[i].nombre,
                    listaPropietarios[i].apellido, listaPropietarios[i].direccion, listaPropietarios[i].numeroTarjeta);
         }
+    }
+
+}
+void mostrarNombrePropietario(sPropietario listaPropietarios[], int idProvista)
+{
+    if(listaPropietarios[idProvista].estado == 1) // SE PODRIA REMOVER YA QUE POR DEFECTOS TODOS LOS ESTADOS SON INICIALIZADOS EN 1
+    {
+        printf("Para el propietario %s se encontro \n",listaPropietarios[idProvista].nombre);
     }
 
 }

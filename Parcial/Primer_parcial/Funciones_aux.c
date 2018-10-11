@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include "string.h"
 #include <ctype.h>
+#include <time.h>
 
 void limpiarPantalla(void)
 {
@@ -125,4 +126,16 @@ int verificarTarjeta(char tarjeta[])
         }
     }
     return esValido;
+}
+
+int devolverHorasEstadia()
+{
+    int horas;
+
+    srand(time(NULL));
+
+    horas = (rand()%24)+1;
+
+    return horas ;
+
 }

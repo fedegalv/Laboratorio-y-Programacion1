@@ -21,13 +21,13 @@ void inicializarAutosEstado(sAutomovil listaAutomoviles[], int tam)
     }
 }
 
-int pedirDatosAutomovil(sAutomovil listaAutomoviles[],int idPropietario)
+int pedirDatosAutomovil(sAutomovil listaAutomoviles[],int idPropietario,int index)
 {
     char patente[51];
     int marca;
     int seleccionMarca;
     int marcaValida;
-    int opRealizada= -1;
+    int opRealizada= 0;
 
     printf("Ingrese patente del propietario: ");
     gets(patente);
@@ -35,8 +35,8 @@ int pedirDatosAutomovil(sAutomovil listaAutomoviles[],int idPropietario)
     do
     {
         marcaValida=0;
-        printf("MARCAS DISPONIBLES\n: ");
-        printf("1- ALPHA ROMEO\n2- FERRARI\n3- FERRARI\n4- OTROS\n");
+        printf("MARCAS DISPONIBLES:\n");
+        printf("1-ALPHA ROMEO\n2-FERRARI\n3-AUDI\n4-OTROS\n");
         printf("Ingrese marca del propietario: ");
         seleccionMarca = ingresoNumero();
         switch(seleccionMarca)
@@ -64,22 +64,38 @@ int pedirDatosAutomovil(sAutomovil listaAutomoviles[],int idPropietario)
 
     }while(marcaValida == 0);
 
-    opRealizada= agregarAutomovil(listaAutomoviles,idPropietario,patente,marca);
+    opRealizada= agregarAutomovil(listaAutomoviles,idPropietario,patente,marca,index);
     return opRealizada;
 }
 
-int agregarAutomovil(sAutomovil listaAutomovil[], int idPropietario, char patente[], int marca)
+int agregarAutomovil(sAutomovil listaAutomovil[], int idPropietario, char patente[], int marca, int index)
 {
     int operacionCompletada;
     int idPr;
     idPr = idPropietario;
-    operacionCompletada = -1; // SE PONE POR DEFAULT COMO INVALIDO
+    operacionCompletada = 0; // SE PONE POR DEFAULT COMO INVALIDO
 
-    listaAutomovil[idPr].idPropietario= idPr;
-    listaAutomovil[idPr].marca= marca;
-    listaAutomovil[idPr].estado= 1;
-    strcpy(listaAutomovil[idPr].patente, patente);
+    listaAutomovil[index].idPropietario= idPr;
+    listaAutomovil[index].marca= marca;
+    listaAutomovil[index].estado= 1;
+    strcpy(listaAutomovil[index].patente, patente);
 
     operacionCompletada = 1; // LA OPERACION FUE REALIZADA CON EXITO
     return operacionCompletada;
+}
+
+int emitirTicket(sAutomovil listaAutomovil[],int idProvisto,int tam)
+{
+    int i;
+    printf("%10s %10s\n","PATENTE","MARCA");
+    for (i= 0; i < tam; i++)
+    {
+        if(listaAutomovil[i].idPropietario == idProvisto && listaAutomovil[i].estado == 1)
+        {
+            printf("%10s %10d\n",listaAutomovil[i].patente, listaAutomovil[i].marca);
+        }
+
+    }
+
+    return 0;
 }

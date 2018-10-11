@@ -7,5 +7,6 @@ typedef struct
 
 } sAutomovil;
 void inicializarAutosEstado(sAutomovil [], int );
-int pedirDatosAutomovil(sAutomovil [], int);
-int agregarAutomovil(sAutomovil [], int , char [], int );
+int pedirDatosAutomovil(sAutomovil [], int,int);
+int agregarAutomovil(sAutomovil [], int , char [], int ,int);
+int emitirTicket(sAutomovil [],int ,int );
