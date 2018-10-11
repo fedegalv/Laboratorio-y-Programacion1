@@ -1,0 +1,32 @@
+# depslib dependency file v1.0
+1538748871 source:d:\galvan\laboratorio-y-programacion1\abm_series_usuarios\main.c
+	<stdio.h>
+	<stdlib.h>
+	"Series_y_usuarios.h"
+
+1538748803 source:d:\galvan\laboratorio-y-programacion1\abm_series_usuarios\series.c
+	<stdio.h>
+	<stdlib.h>
+	"Series.h"
+	<string.h>
+
+1538743086 d:\galvan\laboratorio-y-programacion1\abm_series_usuarios\series.h
+
+1538748371 source:d:\galvan\laboratorio-y-programacion1\abm_series_usuarios\usuarios.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"Usuarios.h"
+
+1538743086 d:\galvan\laboratorio-y-programacion1\abm_series_usuarios\usuarios.h
+
+1538743179 d:\galvan\laboratorio-y-programacion1\abm_series_usuarios\series_y_usuarios.h
+	"Usuarios.h"
+	"Series.h"
+
+1538748360 source:d:\galvan\laboratorio-y-programacion1\abm_series_usuarios\series_y_usuarios.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"Series_y_usuarios.h"
+

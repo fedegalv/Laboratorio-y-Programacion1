@@ -1,0 +1,25 @@
+# depslib dependency file v1.0
+1539266077 source:d:\galvan\laboratorio-y-programacion1\parcial\primer_parcial\funciones_aux.c
+	<stdio.h>
+	<stdlib.h>
+	"string.h"
+	<ctype.h>
+
+1539269250 source:d:\galvan\laboratorio-y-programacion1\parcial\primer_parcial\main.c
+	<stdio.h>
+	<stdlib.h>
+	"Propietarios.h"
+	"Funciones_aux.h"
+
+1539267787 d:\galvan\laboratorio-y-programacion1\parcial\primer_parcial\propietarios.h
+
+1539265392 d:\galvan\laboratorio-y-programacion1\parcial\primer_parcial\funciones_aux.h
+
+1539269602 source:d:\galvan\laboratorio-y-programacion1\parcial\primer_parcial\propietarios.c
+	<stdio.h>
+	<stdlib.h>
+	"string.h"
+	<ctype.h>
+	"Propietarios.h"
+	"Funciones_aux.h"
+
