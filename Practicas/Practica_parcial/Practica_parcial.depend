@@ -1,0 +1,101 @@
+# depslib dependency file v1.0
+1539200571 source:e:\programacion\laboratorio-y-programacion1\practicas\practica_parcial\altas.c
+	"ALTAS.h"
+	<stdio.h>
+	<stdlib.h>
+	"string.h"
+
+1539192748 source:e:\programacion\laboratorio-y-programacion1\practicas\practica_parcial\bajas.c
+
+1539223080 source:e:\programacion\laboratorio-y-programacion1\practicas\practica_parcial\informes.c
+	<stdio.h>
+	<stdlib.h>
+	"string.h"
+	"INFORMES.H"
+
+1539192755 source:e:\programacion\laboratorio-y-programacion1\practicas\practica_parcial\modificaciones.c
+
+1539195199 source:e:\programacion\laboratorio-y-programacion1\practicas\practica_parcial\menu.c
+	"MENU.h"
+
+1539197939 e:\programacion\laboratorio-y-programacion1\practicas\practica_parcial\menu.h
+
+1539223138 source:e:\programacion\laboratorio-y-programacion1\practicas\practica_parcial\main.c
+	<stdio.h>
+	<stdlib.h>
+	"string.h"
+	"FUNCIONESAUX.h"
+	"INFORMES.H"
+
+1539200558 e:\programacion\laboratorio-y-programacion1\practicas\practica_parcial\altas.h
+	"FUNCIONES_AUX.h"
+
+1539192794 e:\programacion\laboratorio-y-programacion1\practicas\practica_parcial\bajas.h
+
+1539192805 e:\programacion\laboratorio-y-programacion1\practicas\practica_parcial\modificaciones.h
+
+1539223049 e:\programacion\laboratorio-y-programacion1\practicas\practica_parcial\informes.h
+	"CLIENTES.h"
+	"PRODUCTOS.h"
+
+1539199711 e:\programacion\laboratorio-y-programacion1\practicas\practica_parcial\main.h
+
+1539209688 source:e:\programacion\laboratorio-y-programacion1\practicas\practica_parcial\funciones_aux.c
+	<stdio.h>
+	<stdlib.h>
+	"string.h"
+	<ctype.h>
+
+1539208971 e:\programacion\laboratorio-y-programacion1\practicas\practica_parcial\funciones_aux.h
+
+1539209314 source:e:\programacion\laboratorio-y-programacion1\practicas\practica_parcial\publicaciones.c
+	"PUBLICACIONES.h"
+	"FUNCIONES_AUX.h"
+	<stdio.h>
+	<stdlib.h>
+	"string.h"
+	<ctype.h>
+
+1539221231 source:e:\programacion\laboratorio-y-programacion1\practicas\practica_parcial\clientes.c
+	<stdio.h>
+	<stdlib.h>
+	"string.h"
+	<ctype.h>
+	"CLIENTES.h"
+	"FUNCIONESAUX.h"
+
+1539221231 e:\programacion\laboratorio-y-programacion1\practicas\practica_parcial\clientes.h
+
+1539207288 e:\programacion\laboratorio-y-programacion1\practicas\practica_parcial\publicaciones.h
+
+1539209267 e:\programacion\laboratorio-y-programacion1\practicas\practica_parcial\funciones_aux.c
+	<stdio.h>
+	<stdlib.h>
+	"string.h"
+	<ctype.h>
+
+1539209189 e:\programacion\laboratorio-y-programacion1\practicas\practica_parcial\publicaciones.c
+	"PUBLICACIONES.h"
+	"FUNCIONES_AUX.c"
+	<stdio.h>
+	<stdlib.h>
+	"string.h"
+	<ctype.h>
+
+1539218211 e:\programacion\laboratorio-y-programacion1\practicas\practica_parcial\funcionesaux.h
+
+1539214569 source:e:\programacion\laboratorio-y-programacion1\practicas\practica_parcial\funcionesaux.c
+	<stdio.h>
+	<stdlib.h>
+	"string.h"
+	<ctype.h>
+
+1539219088 e:\programacion\laboratorio-y-programacion1\practicas\practica_parcial\productos.h
+
+1539218117 source:e:\programacion\laboratorio-y-programacion1\practicas\practica_parcial\productos.c
+	<stdio.h>
+	<stdlib.h>
+	"string.h"
+	"PRODUCTOS.h"
+	"FUNCIONESAUX.h"
+

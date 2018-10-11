@@ -1,0 +1,32 @@
+# depslib dependency file v1.0
+1539116012 source:e:\programacion\laboratorio-y-programacion1\pruebas\prueba pk sk\apellidos.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"Apellidos.h"
+
+1539122535 e:\programacion\laboratorio-y-programacion1\pruebas\prueba pk sk\apellidos.h
+
+1539117992 source:e:\programacion\laboratorio-y-programacion1\pruebas\prueba pk sk\nombreapellido.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"NombreApellido.h"
+
+1539115964 source:e:\programacion\laboratorio-y-programacion1\pruebas\prueba pk sk\nombres.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"Nombres.h"
+
+1539117991 e:\programacion\laboratorio-y-programacion1\pruebas\prueba pk sk\nombres.h
+
+1539118050 source:e:\programacion\laboratorio-y-programacion1\pruebas\prueba pk sk\main.c
+	<stdio.h>
+	<stdlib.h>
+	"NombreApellido.h"
+
+1539117992 e:\programacion\laboratorio-y-programacion1\pruebas\prueba pk sk\nombreapellido.h
+	"Nombres.h"
+	"Apellidos.h"
+

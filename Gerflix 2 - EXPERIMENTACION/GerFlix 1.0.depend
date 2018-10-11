@@ -1,0 +1,120 @@
+# depslib dependency file v1.0
+1538146253 source:d:\galvan\gerflix\gerflix 1.0\main.c
+	<stdio.h>
+	<stdlib.h>
+	"SeriesUsuarios.h"
+
+1538146075 d:\galvan\gerflix\gerflix 1.0\usuario.h
+
+1538145489 d:\galvan\gerflix\gerflix 1.0\serie.h
+
+1538146417 source:d:\galvan\gerflix\gerflix 1.0\serie.c
+	<stdio.h>
+	<stdlib.h>
+	"Serie.h"
+	<string.h>
+
+1538146330 source:d:\galvan\gerflix\gerflix 1.0\usuario.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"Usuario.h"
+
+1538146623 source:d:\galvan\gerflix\gerflix 1.0\seriesusuarios.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"SeriesUsuarios.h"
+
+1538146353 d:\galvan\gerflix\gerflix 1.0\seriesusuarios.h
+	"Usuario.h"
+	"Serie.h"
+
+1538659923 source:d:\galvan\gerflix 2\main.c
+	<stdio.h>
+	<stdlib.h>
+	"SeriesUsuarios.h"
+
+1538658559 d:\galvan\gerflix 2\seriesusuarios.h
+	"Usuario.h"
+	"Serie.h"
+
+1538658515 d:\galvan\gerflix 2\usuario.h
+
+1538658515 d:\galvan\gerflix 2\serie.h
+
+1538661423 source:d:\galvan\gerflix 2\serie.c
+	<stdio.h>
+	<stdlib.h>
+	"Serie.h"
+	<string.h>
+
+1538665844 source:d:\galvan\gerflix 2\seriesusuarios.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"SeriesUsuarios.h"
+
+1538659000 source:d:\galvan\gerflix 2\usuario.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"Usuario.h"
+
+1538661423 source:e:\programacion\laboratorio-y-programacion1\gerflix 2\serie.c
+	<stdio.h>
+	<stdlib.h>
+	"Serie.h"
+	<string.h>
+
+1538658515 e:\programacion\laboratorio-y-programacion1\gerflix 2\serie.h
+
+1539112311 source:e:\programacion\laboratorio-y-programacion1\gerflix 2\seriesusuarios.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"SeriesUsuarios.h"
+
+1539111690 e:\programacion\laboratorio-y-programacion1\gerflix 2\seriesusuarios.h
+	"Usuario.h"
+	"Serie.h"
+
+1538658515 e:\programacion\laboratorio-y-programacion1\gerflix 2\usuario.h
+
+1538659000 source:e:\programacion\laboratorio-y-programacion1\gerflix 2\usuario.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"Usuario.h"
+
+1539111619 source:e:\programacion\laboratorio-y-programacion1\gerflix 2\main.c
+	<stdio.h>
+	<stdlib.h>
+	"SeriesUsuarios.h"
+
+1538661423 source:e:\programacion\laboratorio-y-programacion1\gerflix 2 - experimentacion\serie.c
+	<stdio.h>
+	<stdlib.h>
+	"Serie.h"
+	<string.h>
+
+1538658515 e:\programacion\laboratorio-y-programacion1\gerflix 2 - experimentacion\serie.h
+
+1538659000 source:e:\programacion\laboratorio-y-programacion1\gerflix 2 - experimentacion\usuario.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"Usuario.h"
+
+1538658515 e:\programacion\laboratorio-y-programacion1\gerflix 2 - experimentacion\usuario.h
+
+1539115475 source:e:\programacion\laboratorio-y-programacion1\gerflix 2 - experimentacion\seriesusuarios.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"SeriesUsuarios.h"
+
+1539111690 e:\programacion\laboratorio-y-programacion1\gerflix 2 - experimentacion\seriesusuarios.h
+	"Usuario.h"
+	"Serie.h"
+
