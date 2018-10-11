@@ -21,7 +21,7 @@ int main()
     int movilOK, estadiaOK;
     int idPropietarioAuto;
     int autosEstacionados;
-    int horas;
+    char nombreProp[25];
     autosEstacionados= 0;
     cantProp = 5;
     sPropietario listaPropietarios[CANT_PROP];
@@ -164,12 +164,10 @@ int main()
                     }
                     else
                     {
-                        mostrarNombrePropietario(listaPropietarios,idEncontrada);
-                        emitirTicket(listaAutomoviles,idEncontrada,LUGAR_DISP);
-                        printf("EGRESO REALIZADO CON EXITO\n");
+                        mostrarNombrePropietario(listaPropietarios,idEncontrada,nombreProp);
+                        estadiaOK= emitirTicket(listaAutomoviles,idEncontrada,LUGAR_DISP,nombreProp);
                     }
-                }
-                while(estadiaOK == INVALIDO);
+                }while(estadiaOK == INVALIDO);
 
             }
             limpiarPantalla();

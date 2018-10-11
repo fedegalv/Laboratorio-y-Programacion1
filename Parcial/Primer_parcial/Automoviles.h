@@ -9,4 +9,6 @@ typedef struct
 void inicializarAutosEstado(sAutomovil [], int );
 int pedirDatosAutomovil(sAutomovil [], int,int);
 int agregarAutomovil(sAutomovil [], int , char [], int ,int);
-int emitirTicket(sAutomovil [],int ,int );
+int emitirTicket(sAutomovil [], int ,int, char nombreProp[] );
+void codigoMarcas(int, char[]);
+int precioPorHora(int );

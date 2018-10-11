@@ -208,11 +208,12 @@ void mostrarListaPropietarios(sPropietario listaPropietarios[], int tam)
     }
 
 }
-void mostrarNombrePropietario(sPropietario listaPropietarios[], int idProvista)
+void mostrarNombrePropietario(sPropietario listaPropietarios[], int idProvista, char nompreProp[])
 {
     if(listaPropietarios[idProvista].estado == 1) // SE PODRIA REMOVER YA QUE POR DEFECTOS TODOS LOS ESTADOS SON INICIALIZADOS EN 1
     {
         printf("Para el propietario %s se encontro \n",listaPropietarios[idProvista].nombre);
+        strcpy(nompreProp,listaPropietarios[idProvista].nombre);
     }
 
 }

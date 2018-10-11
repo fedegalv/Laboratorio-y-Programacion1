@@ -16,5 +16,5 @@ int bajaPropietarios(sPropietario [], int );
 void inicializarPropEstado(sPropietario [], int tam);
 void inicializarPropietariosHardcoded(sPropietario []);
 void mostrarListaPropietarios(sPropietario [], int );
-void mostrarNombrePropietario(sPropietario [],int );
+void mostrarNombrePropietario(sPropietario [],int ,char []);
 
