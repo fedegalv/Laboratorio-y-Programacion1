@@ -28,9 +28,16 @@ int pedirDatosAutomovil(sAutomovil listaAutomoviles[],int idPropietario,int inde
     int seleccionMarca;
     int marcaValida;
     int opRealizada= 0;
+    int patenteValida;
 
-    printf("Ingrese patente del propietario: ");
-    gets(patente);
+    do
+    {
+        patenteValida= 0;
+        printf("Ingrese patente del propietario: ");
+        gets(patente);
+        patenteValida= validacionPatente(patente);
+    }
+    while(patenteValida == 0);
     fflush(stdin);
     do
     {
@@ -133,6 +140,7 @@ int emitirTicket(sAutomovil listaAutomovil[],int idProvisto,int tam, char nombre
     int totalEstadia;
     int horasEstadia;
     int precioEstadia;
+    int patenteValida;
 
     printf("\n%10s %15s\n","PATENTE","MARCA");
     for (i= 0; i < tam; i++)
@@ -143,8 +151,15 @@ int emitirTicket(sAutomovil listaAutomovil[],int idProvisto,int tam, char nombre
             printf("%10s %15s\n",listaAutomovil[i].patente,marcaTexto);
         }
     }
-    printf("QUE AUTO DESEA RETIRAR DEL ESTACIONAMIENTO? INGRESE LA PATENTE\nOPCION SELECCIONADA: ");
-    gets(patenteSeleccionada);
+    do
+    {
+        patenteValida= 0;
+        printf("QUE AUTO DESEA RETIRAR DEL ESTACIONAMIENTO? INGRESE LA PATENTE\nPATENTE SELECCIONADA: ");
+        gets(patenteSeleccionada);
+        patenteValida= validacionPatente(patenteSeleccionada);
+    }
+    while(patenteValida == 0);
+
     fflush(stdin);
     for (i= 0; i < tam; i++)
     {
@@ -160,13 +175,12 @@ int emitirTicket(sAutomovil listaAutomovil[],int idProvisto,int tam, char nombre
             printf("GENERANDO TICKET...");
             limpiarPantalla();
             printf("*********************** TICKET ***********************\n");// 8
-            printf("** NOMBRE DEL PROPIETARIO: %2s                   **\n",nombreProp);//5
+            printf("** NOMBRE DEL PROPIETARIO: %2s                    **\n",nombreProp);//5
             printf("** PATENTE DEL AUTO:       %14s           **\n",listaAutomovil[i].patente);
             printf("** MARCA DEL AUTO:         %14s           **\n",marcaTexto);
             printf("** HORAS ESTACIONADO:      %14d           **\n",horasEstadia);
             printf("** TOTAL A PAGAR:          %14d           **\n",totalEstadia);
             printf("******************************************************\n");
-            limpiarPantalla();
             //printf("AUTO ENCONTRADO GENERANDO TICKET\n");
             autoEncontrado= 1;
             break;
@@ -182,3 +196,5 @@ int emitirTicket(sAutomovil listaAutomovil[],int idProvisto,int tam, char nombre
 
     return autoEncontrado;
 }
+
+

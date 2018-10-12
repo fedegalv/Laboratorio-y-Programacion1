@@ -99,6 +99,7 @@ int main()
                 else
                 {
                     //printf("ID ENCONTRADA\n");
+                    mostrarNombrePropietario(listaPropietarios,idEncontrada,nombreProp);
                     bajaPropietarios(listaPropietarios,idEncontrada);
                 }
             }
@@ -113,6 +114,9 @@ int main()
             {
                 limpiarPantalla();
                 printf("****** LISTA PROPIETARIOS ******\n\n");
+                mostrarListaPropietarios(listaPropietarios,CANT_PROP);
+                printf("****** LISTA PROPIETARIOS ORDENADA******\n\n");
+                ordenarPropietarios(listaPropietarios,CANT_PROP);
                 mostrarListaPropietarios(listaPropietarios,CANT_PROP);
             }
             else

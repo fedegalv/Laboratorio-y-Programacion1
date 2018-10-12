@@ -208,6 +208,52 @@ void mostrarListaPropietarios(sPropietario listaPropietarios[], int tam)
     }
 
 }
+int ordenarPropietarios(sPropietario listaP[], int tam)
+{
+    sPropietario aux;
+    aux.estado = 1;
+    int i;
+    int j;
+
+
+    for(i=0; i<tam; i++)
+    {
+        if(listaP[i].estado == 1)
+        {
+            for(j=i+1; j<tam; j++)
+            {
+                if(strcmp(listaP[i].nombre,listaP[j].nombre)>0)
+                {
+                    aux = listaP[i];
+                    listaP[i]=listaP[j];
+                    listaP[j]=aux;
+                }
+                else
+                {
+                    if(strcmp(listaP[i].nombre,listaP[j].nombre)==0)
+                    {
+                        if(strcmp(listaP[i].apellido,listaP[j].apellido)>0)
+                        {
+                            aux = listaP[i];
+                            listaP[i]=listaP[j];
+                            listaP[j]=aux;
+
+                        }
+
+                    }
+                }
+
+            }
+
+        }
+
+    }
+
+    return 0;
+
+}
+
+
 void mostrarNombrePropietario(sPropietario listaPropietarios[], int idProvista, char nompreProp[])
 {
     if(listaPropietarios[idProvista].estado == 1) // SE PODRIA REMOVER YA QUE POR DEFECTOS TODOS LOS ESTADOS SON INICIALIZADOS EN 1

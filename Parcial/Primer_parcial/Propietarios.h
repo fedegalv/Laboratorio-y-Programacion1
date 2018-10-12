@@ -17,4 +17,5 @@ void inicializarPropEstado(sPropietario [], int tam);
 void inicializarPropietariosHardcoded(sPropietario []);
 void mostrarListaPropietarios(sPropietario [], int );
 void mostrarNombrePropietario(sPropietario [],int ,char []);
+int ordenarPropietarios(sPropietario [], int );
 

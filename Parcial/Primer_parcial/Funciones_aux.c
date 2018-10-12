@@ -139,3 +139,49 @@ int devolverHorasEstadia()
     return horas ;
 
 }
+
+int validacionPatente(char patente[])
+{
+    int tamPantente;
+    int j;
+    int patenteValida = 1;
+    tamPantente= strlen(patente);
+    if(tamPantente == 6)
+        for(j=0; j <3; j++)
+        {
+            if( isalpha(patente[j]) )
+            {
+                continue;
+            }
+            else
+            {
+                patenteValida= 0;
+                printf("PATENTE NO VALIDA, EL FORMATO ES: AAA 111\n");
+                break;
+            }
+        }
+    if(patenteValida == 1)
+    {
+        for(j=3; j <= 6; j++)
+        {
+            if( isspace(patente[j] ))
+            {
+                continue;
+            }
+            else
+            {
+                if( isdigit(patente[j]) )
+                {
+                    continue;
+                }
+                else
+                {
+                    patenteValida = 0;
+                    printf("PATENTE NO VALIDA, EL FORMATO ES: AAA 111\n");
+                    break;
+                }
+            }
+        }
+    }
+    return patenteValida;
+}
