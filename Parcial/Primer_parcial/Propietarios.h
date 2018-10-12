@@ -12,7 +12,7 @@ int pedirDatos(sPropietario [],int );
 int agregarPropietarios(sPropietario  [], int , char[], char[], char[] , char[]);
 int buscarPropietario ( sPropietario* , int , int );
 int modificarPropietario(sPropietario* , int );
-int bajaPropietarios(sPropietario [], int );
+int bajaPropietarios(sPropietario [], int, int);
 void inicializarPropEstado(sPropietario [], int tam);
 void inicializarPropietariosHardcoded(sPropietario []);
 void mostrarListaPropietarios(sPropietario [], int );

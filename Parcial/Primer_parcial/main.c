@@ -18,10 +18,11 @@ int main()
     int ingresoOK;
     int idProvista;
     int idEncontrada;
-    int movilOK, estadiaOK;
+    int movilOK, estadiaOK, bajaPropOK, hayVehiculosOK, hayVehiculosPropOK;
     int idPropietarioAuto;
     int autosEstacionados;
     char nombreProp[25];
+    int importeFinal;
     autosEstacionados= 0;
     cantProp = 5;
     sPropietario listaPropietarios[CANT_PROP];
@@ -33,8 +34,8 @@ int main()
 
     do
     {
-        printf("***** MENU PRINCIPAL **** \n");
-        printf("1- INGRESO DE DATOS"
+        printf("***** MENU PRINCIPAL ESTACIONAMIENTO**** \n\n");
+        printf("1- INGRESO DE DATOS DE PROPIETARIOS"
                "\n2- MODIFICAR DATOS DEL PROPIETARIO"
                "\n3- BAJA DEL PROPIETARIO"
                "\n4- LISTAR PROPIETARIOS"
@@ -69,6 +70,8 @@ int main()
                 if(idEncontrada == NO_ENCONTRADO)
                 {
                     printf("ID NO ENCONTRADA O VALIDA\n");
+                    limpiarPantalla();
+                    break;
                 }
                 else
                 {
@@ -95,12 +98,35 @@ int main()
                 if(idEncontrada == NO_ENCONTRADO)
                 {
                     printf("ID NO ENCONTRADA O VALIDA\n");
+                    limpiarPantalla();
+                    break;
                 }
                 else
                 {
                     //printf("ID ENCONTRADA\n");
-                    mostrarNombrePropietario(listaPropietarios,idEncontrada,nombreProp);
-                    bajaPropietarios(listaPropietarios,idEncontrada);
+                    hayVehiculosOK= hayVehiculos(listaAutomoviles,LUGAR_DISP);
+                    if(hayVehiculosOK == INVALIDO)
+                    {
+                        printf("NO HAY VEHICULOS PARA MOSTRAR\n");
+                        importeFinal= totalPagarPropietario(listaAutomoviles,idEncontrada,LUGAR_DISP);
+                        bajaPropOK= bajaPropietarios(listaPropietarios,idEncontrada,importeFinal);
+                        if(bajaPropOK == VALIDO && hayVehiculosOK == VALIDO)
+                        {
+                            bajaAutomoviles(listaAutomoviles,idEncontrada,LUGAR_DISP);
+                        }
+                    }
+                    else
+                    {
+                        mostrarNombrePropietario(listaPropietarios,idEncontrada,nombreProp);
+                        importeFinal= totalPagarPropietario(listaAutomoviles,idEncontrada,LUGAR_DISP);
+                        bajaPropOK= bajaPropietarios(listaPropietarios,idEncontrada,importeFinal);
+                        if(bajaPropOK == VALIDO && hayVehiculosOK == VALIDO)
+                        {
+                            bajaAutomoviles(listaAutomoviles,idEncontrada,LUGAR_DISP);
+                        }
+
+                    }
+
                 }
             }
             else
@@ -113,8 +139,8 @@ int main()
             if(cantProp >=1)
             {
                 limpiarPantalla();
-                printf("****** LISTA PROPIETARIOS ******\n\n");
-                mostrarListaPropietarios(listaPropietarios,CANT_PROP);
+                //printf("****** LISTA PROPIETARIOS ******\n\n");
+                //mostrarListaPropietarios(listaPropietarios,CANT_PROP);
                 printf("****** LISTA PROPIETARIOS ORDENADA******\n\n");
                 ordenarPropietarios(listaPropietarios,CANT_PROP);
                 mostrarListaPropietarios(listaPropietarios,CANT_PROP);
@@ -128,6 +154,7 @@ int main()
         case 5:
             do
             {
+                fflush(stdin);
                 limpiarPantalla();
                 movilOK=INVALIDO;
                 printf("****** MENU ALTAS AUTOMOVILES ******\n\n");
@@ -138,6 +165,7 @@ int main()
                 if(idEncontrada == NO_ENCONTRADO)
                 {
                     printf("ID NO ENCONTRADA O VALIDA\n");
+                    break;
                 }
                 else
                 {
@@ -160,18 +188,33 @@ int main()
                     printf("******MENU EGRESO DE AUTOS******\n\n");
                     mostrarListaPropietarios(listaPropietarios,CANT_PROP);
                     printf("Ingrese ID del propietario del auto: ");
+                    //printf("Para volver al menu principal escriba -1 ");
                     idPropietarioAuto=ingresoNumero();
                     idEncontrada= buscarPropietario(listaPropietarios,CANT_PROP,idPropietarioAuto);
                     if(idEncontrada == NO_ENCONTRADO)
                     {
                         printf("ID NO ENCONTRADA O VALIDA\n");
+                        break;
                     }
                     else
                     {
-                        mostrarNombrePropietario(listaPropietarios,idEncontrada,nombreProp);
-                        estadiaOK= emitirTicket(listaAutomoviles,idEncontrada,LUGAR_DISP,nombreProp);
+                        hayVehiculosPropOK= hayVehiculoEnPropietario(listaAutomoviles,LUGAR_DISP,idEncontrada);
+                        if(hayVehiculosPropOK == VALIDO)
+                        {
+                            mostrarNombrePropietario(listaPropietarios,idEncontrada,nombreProp);
+                            estadiaOK= emitirTicket(listaAutomoviles,idEncontrada,LUGAR_DISP,nombreProp);
+
+                        }
+                        else
+                        {
+                            printf("NO HAY VEHICULOS PARA MOSTRAR\n");
+                            break;
+                        }
+                        //mostrarNombrePropietario(listaPropietarios,idEncontrada,nombreProp);
+                        //estadiaOK= emitirTicket(listaAutomoviles,idEncontrada,LUGAR_DISP,nombreProp);
                     }
-                }while(estadiaOK == INVALIDO);
+                }
+                while(estadiaOK == INVALIDO);
 
             }
             limpiarPantalla();

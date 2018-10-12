@@ -32,6 +32,7 @@ int pedirDatosAutomovil(sAutomovil listaAutomoviles[],int idPropietario,int inde
 
     do
     {
+        fflush(stdin);
         patenteValida= 0;
         printf("Ingrese patente del propietario: ");
         gets(patente);
@@ -153,6 +154,7 @@ int emitirTicket(sAutomovil listaAutomovil[],int idProvisto,int tam, char nombre
     }
     do
     {
+        fflush(stdin);
         patenteValida= 0;
         printf("QUE AUTO DESEA RETIRAR DEL ESTACIONAMIENTO? INGRESE LA PATENTE\nPATENTE SELECCIONADA: ");
         gets(patenteSeleccionada);
@@ -163,6 +165,8 @@ int emitirTicket(sAutomovil listaAutomovil[],int idProvisto,int tam, char nombre
     fflush(stdin);
     for (i= 0; i < tam; i++)
     {
+        fflush(stdin);
+        autoEncontrado= 0;
         //pantenteValida = strcmp(listaAutomovil[i].patente, aux);
         //printf("%d",pantenteValida);
         if(listaAutomovil[i].estado == 1 && strcmp(listaAutomovil[i].patente, patenteSeleccionada) == 0)
@@ -182,19 +186,102 @@ int emitirTicket(sAutomovil listaAutomovil[],int idProvisto,int tam, char nombre
             printf("** TOTAL A PAGAR:          %14d           **\n",totalEstadia);
             printf("******************************************************\n");
             //printf("AUTO ENCONTRADO GENERANDO TICKET\n");
+            listaAutomovil[i].estado= 0; //DADO DE BAJA
             autoEncontrado= 1;
             break;
-
         }
-        else
-        {
-            printf("PATENTE NO ENCONTRADA O VALIDA\n");
-            autoEncontrado= 0;
-            break;
-        }
+    }
+    if(autoEncontrado==0)
+    {
+        printf("PATENTE NO ENCONTRADA O VALIDA\n");
     }
 
     return autoEncontrado;
 }
+
+int totalPagarPropietario(sAutomovil listaAutomovil[],int idProvisto,int tam)
+{
+    int i;
+    char marcaTexto[15];
+    //int pantenteValida;
+    int totalEstadia;
+    int horasEstadia;
+    int precioEstadia;
+    int importeFinal;
+    importeFinal = 0;
+
+    printf("\n%10s %15s %15s %15s %15s\n","PATENTE","MARCA","HORAS ESTADIA","PRECIO ESTADIA","TOTAL ESTADIA");
+    for (i= 0; i < tam; i++)
+    {
+        if(listaAutomovil[i].idPropietario == idProvisto && listaAutomovil[i].estado == 1)
+        {
+            horasEstadia= devolverHorasEstadia();
+            precioEstadia= precioPorHora(listaAutomovil[i].marca);
+            totalEstadia= precioEstadia * horasEstadia;
+            codigoMarcas(listaAutomovil[i].marca,marcaTexto);
+            printf("%10s %15s %15d %15d %15d\n",listaAutomovil[i].patente,marcaTexto, horasEstadia, precioEstadia, totalEstadia);
+            importeFinal= importeFinal+ totalEstadia;
+        }
+    }
+    //printf("importe total %d\n",importeFinal);
+
+
+    return importeFinal;
+}
+int bajaAutomoviles(sAutomovil listaAutomovil[], int idProvisto, int tam)
+{
+    int cont;
+    int i;
+    cont=0;
+    for (i= 0; i < tam; i++)
+    {
+        if(listaAutomovil[i].idPropietario == idProvisto && listaAutomovil[i].estado == 1)
+        {
+            listaAutomovil[i].estado= 0; //DADO DE BAJA
+            cont++;
+        }
+    }
+    printf("HAN SIDO DADO DE BAJA %d AUTO/S \n",cont);
+    return cont;
+}
+int hayVehiculos(sAutomovil listaAutomoviles[], int tam)
+{
+    int i;
+    int hayVehiculos;
+    for(i=0; i<tam;i++)
+    {
+        if (listaAutomoviles[i].estado == 0)
+        {
+            hayVehiculos= 0;
+        }
+        else if(listaAutomoviles[i].estado == 1)
+        {
+            hayVehiculos = 1;
+            break;
+        }
+    }
+    return hayVehiculos;
+}
+int hayVehiculoEnPropietario(sAutomovil listaAutomoviles[], int tam,int idProvista)
+{
+    int i;
+    int hayVehiculos;
+    for(i=0; i<tam;i++)
+    {
+        if (listaAutomoviles[i].estado == 0)
+        {
+            hayVehiculos= 0;
+        }
+        else if(listaAutomoviles[i].estado == 1 && listaAutomoviles[i].idPropietario == idProvista)
+        {
+            hayVehiculos = 1;
+            break;
+        }
+    }
+    return hayVehiculos;
+
+}
+
+
 
 

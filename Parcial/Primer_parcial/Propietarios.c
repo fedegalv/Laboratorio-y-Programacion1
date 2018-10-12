@@ -108,8 +108,8 @@ int modificarPropietario(sPropietario* listaPropietarios, int idEncontrado)
 
     fflush(stdin);
     printf("MODIFICACION DE DATOS\n\n");
-    printf("%4s %10s %10s %10s \n", "ID", "Nombre","Apellido", "NRO TARJETA");
-    printf("%4d %10s %10s %10s \n\n", listaPropietarios[idEncontrado].idPropietario,listaPropietarios[idEncontrado].nombre,listaPropietarios[idEncontrado].apellido, listaPropietarios[idEncontrado].numeroTarjeta);
+    printf("%4s %15s %15s %19s \n", "ID", "Nombre","Apellido", "NRO TARJETA");
+    printf("%4d %15s %15s %19s \n\n", listaPropietarios[idEncontrado].idPropietario,listaPropietarios[idEncontrado].nombre,listaPropietarios[idEncontrado].apellido, listaPropietarios[idEncontrado].numeroTarjeta);
 
 
     printf("DATO A MODIFICAR: TARJETA DE CREDITO\n");
@@ -140,13 +140,14 @@ int modificarPropietario(sPropietario* listaPropietarios, int idEncontrado)
     return 0;
 }
 
-int bajaPropietarios(sPropietario listaPropietarios[], int idProvisto)
+int bajaPropietarios(sPropietario listaPropietarios[], int idProvisto,int importeTotal)
 {
     int operacionCompletada;
-    operacionCompletada = -1; // SE PONE POR DEFAULT COMO INVALIDO
+    operacionCompletada = 0; // SE PONE POR DEFAULT COMO INVALIDO
     char respuestaContinuar;
-    printf("ESTA A PUNTO DE DAR DE BAJA:\n ID: %d\nNOMBRE: %s\nAPELLIDO: %s\n", listaPropietarios[idProvisto].idPropietario, listaPropietarios[idProvisto].nombre,
+    printf("\nESTA A PUNTO DE DAR DE BAJA:\n ID: %d\nNOMBRE: %s\nAPELLIDO: %s\n", listaPropietarios[idProvisto].idPropietario, listaPropietarios[idProvisto].nombre,
            listaPropietarios[idProvisto].apellido);
+    printf("EL TOTAL A ABONAR POR TODOS SUS AUTOS AL RETIRARSE ES: $ %d\n",importeTotal);
     printf("DESEA CONTINUAR? (S)i o (N)o \nOPCION SELECCIONADA: ");
     scanf("%c",&respuestaContinuar);
 
@@ -155,12 +156,13 @@ int bajaPropietarios(sPropietario listaPropietarios[], int idProvisto)
     if(respuestaContinuar == 'S')
     {
         listaPropietarios[idProvisto].estado= 0;
+        operacionCompletada= 1;
         printf("BAJA EXITOSA\n");
     }
     else
     {
         printf("Cancelando...\n");
-        operacionCompletada = -1;
+        operacionCompletada = 0;
     }
     return operacionCompletada;
 }
