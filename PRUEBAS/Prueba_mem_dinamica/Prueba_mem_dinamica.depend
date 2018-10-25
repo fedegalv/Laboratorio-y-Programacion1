@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1540435637 source:e:\programacion\laboratorio-y-programacion1\pruebas\prueba_mem_dinamica\main.c
+	<stdio.h>
+	<stdlib.h>
+	"string.h"
+
