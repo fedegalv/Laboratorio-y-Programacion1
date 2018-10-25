@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include "string.h"
 #include <ctype.h>
+#include <time.h>
 
 void limpiarPantalla(void)
 {
@@ -91,16 +92,96 @@ void formateoCadenas(char* texto)
     }
 
 }
-void verificarTarjeta(char tarjeta[])
+int verificarTarjeta(char tarjeta[])
 {
-    size_t tam = (int)(sizeof(tarjeta)/sizeof(tarjeta[0]));
-    printf("%d\n",tam);
-    if (tam < 16 || tam > 16)
+    int tamTarjeta;
+    int i;
+    int esValido =1 ;
+    tamTarjeta= strlen(tarjeta);
+    for(i=0; i <tamTarjeta; i++)
     {
-        printf("No tiene el largo correcto.");
+        if( isdigit(tarjeta[i]) )
+        {
+            continue;
+        }
+        else
+        {
+            esValido= 0;
+            printf("INGRESO ALGUN CARACTER NO VALIDO, VUELVA A INGRESAR\n");
+            break;
+        }
     }
-    else
+    if( esValido != 0)
     {
-        printf("TIENE LARGO CORRECTO");
+
+        printf("LARGO DE TARJETA INGRESADA: %d\n",tamTarjeta);
+        if (tamTarjeta < 16 || tamTarjeta > 16)
+        {
+            printf("No tiene el largo correcto\n");
+            esValido= 0;
+        }
+        else
+        {
+            printf("TARJETA VALIDA\n");
+        }
     }
+    return esValido;
+}
+
+int devolverHorasEstadia()
+{
+    int horas;
+
+    srand(time(NULL));
+
+    horas = (rand()%24)+1;
+
+    return horas ;
+
+}
+
+int validacionPatente(char patente[])
+{
+    int tamPantente;
+    int j;
+    int patenteValida = 1;
+    tamPantente= strlen(patente);
+    if(tamPantente == 6)
+        for(j=0; j <3; j++)
+        {
+            if( isalpha(patente[j]) )
+            {
+                continue;
+            }
+            else
+            {
+                patenteValida= 0;
+                printf("PATENTE NO VALIDA, EL FORMATO ES: AAA 111\n");
+                break;
+            }
+        }
+    if(patenteValida == 1)
+    {
+        for(j=3; j <= 6; j++)
+        {
+            if( isspace(patente[j] ))
+            {
+                continue;
+            }
+            else
+            {
+                if( isdigit(patente[j]) )
+                {
+                    continue;
+                }
+                else
+                {
+                    patenteValida = 0;
+                    printf("PATENTE NO VALIDA, EL FORMATO ES: AAA 111\n");
+                    break;
+                }
+            }
+        }
+    }
+    return patenteValida;
 }

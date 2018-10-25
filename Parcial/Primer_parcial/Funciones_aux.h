@@ -2,4 +2,7 @@ void limpiarPantalla(void);
 int ingresoNumero(void);
 int verificarCadena(char [51]);
 void formateoCadenas(char* );
-void verificarTarjeta(char []);
+int verificarTarjeta(char []);
+int devolverHorasEstadia();
+int validacionPatente(char []);
+

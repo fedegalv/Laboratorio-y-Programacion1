@@ -31,6 +31,10 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="Automoviles.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Automoviles.h" />
 		<Unit filename="Funciones_aux.c">
 			<Option compilerVar="CC" />
 		</Unit>
