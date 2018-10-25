@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1539962027 source:d:\galvan\laboratorio-y-programacion1\18 oct punteros\puntero_estruct_ejemplo\main.c
+	<stdio.h>
+	<stdlib.h>
+	"string.h"
+

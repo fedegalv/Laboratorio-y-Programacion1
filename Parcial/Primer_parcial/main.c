@@ -52,7 +52,7 @@ int main()
                 }
                 else
                 {
-                    printf("ID ENCONTRADA");
+                    printf("ID ENCONTRADA\n");
                     modificarPropietario(listaPropietarios,idEncontrada);
                 }
             }
