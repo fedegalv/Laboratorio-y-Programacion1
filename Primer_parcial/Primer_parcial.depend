@@ -1,0 +1,149 @@
+# depslib dependency file v1.0
+1539266077 source:d:\galvan\laboratorio-y-programacion1\parcial\primer_parcial\funciones_aux.c
+	<stdio.h>
+	<stdlib.h>
+	"string.h"
+	<ctype.h>
+
+1539269250 source:d:\galvan\laboratorio-y-programacion1\parcial\primer_parcial\main.c
+	<stdio.h>
+	<stdlib.h>
+	"Propietarios.h"
+	"Funciones_aux.h"
+
+1539267787 d:\galvan\laboratorio-y-programacion1\parcial\primer_parcial\propietarios.h
+
+1539265392 d:\galvan\laboratorio-y-programacion1\parcial\primer_parcial\funciones_aux.h
+
+1539269602 source:d:\galvan\laboratorio-y-programacion1\parcial\primer_parcial\propietarios.c
+	<stdio.h>
+	<stdlib.h>
+	"string.h"
+	<ctype.h>
+	"Propietarios.h"
+	"Funciones_aux.h"
+
+1539303369 source:e:\programacion\laboratorio-y-programacion1\parcial\primer_parcial\funciones_aux.c
+	<stdio.h>
+	<stdlib.h>
+	"string.h"
+	<ctype.h>
+	<time.h>
+
+1539313097 source:e:\programacion\laboratorio-y-programacion1\parcial\primer_parcial\propietarios.c
+	<stdio.h>
+	<stdlib.h>
+	"string.h"
+	<ctype.h>
+	"Propietarios.h"
+	"Funciones_aux.h"
+
+1539308327 e:\programacion\laboratorio-y-programacion1\parcial\primer_parcial\propietarios.h
+
+1539303369 e:\programacion\laboratorio-y-programacion1\parcial\primer_parcial\funciones_aux.h
+
+1539314744 source:e:\programacion\laboratorio-y-programacion1\parcial\primer_parcial\main.c
+	<stdio.h>
+	<stdlib.h>
+	"Propietarios.h"
+	"Automoviles.h"
+	"Funciones_aux.h"
+
+1539314681 source:e:\programacion\laboratorio-y-programacion1\parcial\primer_parcial\automoviles.c
+	<stdio.h>
+	<stdlib.h>
+	"string.h"
+	<ctype.h>
+	"Automoviles.h"
+	"Funciones_aux.h"
+	"Propietarios.h"
+
+1539314681 e:\programacion\laboratorio-y-programacion1\parcial\primer_parcial\automoviles.h
+
+1539345152 source:d:\galvan\octubre\laboratorio-y-programacion1\parcial\primer_parcial\funciones_aux.c
+	<stdio.h>
+	<stdlib.h>
+	"string.h"
+	<ctype.h>
+	<time.h>
+
+1539358198 source:d:\galvan\octubre\laboratorio-y-programacion1\parcial\primer_parcial\main.c
+	<stdio.h>
+	<stdlib.h>
+	"Propietarios.h"
+	"Automoviles.h"
+	"Funciones_aux.h"
+
+1539355939 d:\galvan\octubre\laboratorio-y-programacion1\parcial\primer_parcial\propietarios.h
+
+1539355670 d:\galvan\octubre\laboratorio-y-programacion1\parcial\primer_parcial\automoviles.h
+
+1539345152 d:\galvan\octubre\laboratorio-y-programacion1\parcial\primer_parcial\funciones_aux.h
+
+1539356343 source:d:\galvan\octubre\laboratorio-y-programacion1\parcial\primer_parcial\propietarios.c
+	<stdio.h>
+	<stdlib.h>
+	"string.h"
+	<ctype.h>
+	"Propietarios.h"
+	"Funciones_aux.h"
+
+1539358345 source:d:\galvan\octubre\laboratorio-y-programacion1\parcial\primer_parcial\automoviles.c
+	<stdio.h>
+	<stdlib.h>
+	"string.h"
+	<ctype.h>
+	"Automoviles.h"
+	"Funciones_aux.h"
+	"Propietarios.h"
+
+1541703965 source:e:\programacion\laboratorio-y-programacion1\primer_parcial\automoviles.c
+	<stdio.h>
+	<stdlib.h>
+	"string.h"
+	<ctype.h>
+	"Automoviles.h"
+	"Funciones_aux.h"
+	"Propietarios.h"
+
+1541553904 e:\programacion\laboratorio-y-programacion1\primer_parcial\automoviles.h
+
+1541555380 e:\programacion\laboratorio-y-programacion1\primer_parcial\funciones_aux.h
+
+1541645459 e:\programacion\laboratorio-y-programacion1\primer_parcial\propietarios.h
+
+1541555380 source:e:\programacion\laboratorio-y-programacion1\primer_parcial\funciones_aux.c
+	<stdio.h>
+	<stdlib.h>
+	"string.h"
+	<ctype.h>
+	<time.h>
+	"Propietarios.h"
+
+1541704274 source:e:\programacion\laboratorio-y-programacion1\primer_parcial\propietarios.c
+	<stdio.h>
+	<stdlib.h>
+	"string.h"
+	<ctype.h>
+	"Propietarios.h"
+	"Funciones_aux.h"
+
+1541703848 source:e:\programacion\laboratorio-y-programacion1\primer_parcial\main.c
+	<stdio.h>
+	<stdlib.h>
+	"Propietarios.h"
+	"Automoviles.h"
+	"Funciones_aux.h"
+	"menu.h"
+
+1541645690 source:e:\programacion\laboratorio-y-programacion1\primer_parcial\menu.c
+	<stdio.h>
+	<stdlib.h>
+	"string.h"
+	<ctype.h>
+	"Automoviles.h"
+	"Propietarios.h"
+	"Funciones_aux.h"
+
+1541554334 e:\programacion\laboratorio-y-programacion1\primer_parcial\menu.h
+

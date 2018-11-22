@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1541531995 source:e:\programacion\laboratorio-y-programacion1\pruebas\prueba bin\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+

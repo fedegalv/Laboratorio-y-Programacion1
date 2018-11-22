@@ -1,0 +1,25 @@
+# depslib dependency file v1.0
+1541553248 source:e:\programacion\laboratorio-y-programacion1\parcial\primer_parcial_v2\automoviles.c
+
+1541553154 source:e:\programacion\laboratorio-y-programacion1\parcial\primer_parcial_v2\main.c
+	<stdio.h>
+	<stdlib.h>
+	"Funciones_aux.h"
+	"Automoviles.h"
+	"Propietarios.h"
+	"Funciones_aux.h"
+
+1541552984 source:e:\programacion\laboratorio-y-programacion1\parcial\primer_parcial_v2\propietarios.c
+
+1541552890 source:e:\programacion\laboratorio-y-programacion1\parcial\primer_parcial_v2\funciones_aux.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	"string.h"
+
+1541551727 e:\programacion\laboratorio-y-programacion1\parcial\primer_parcial_v2\funciones_aux.h
+
+1541553024 e:\programacion\laboratorio-y-programacion1\parcial\primer_parcial_v2\automoviles.h
+
+1541552890 e:\programacion\laboratorio-y-programacion1\parcial\primer_parcial_v2\propietarios.h
+
