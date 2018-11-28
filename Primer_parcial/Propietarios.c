@@ -6,38 +6,8 @@
 #include "Funciones_aux.h"
 int obtenerIdMasAltaProp(sPropietario listaPropietario[], int tam, int flagPrimeraVez)
 {
-    /*
-    int i;
-    int lastID;
-
-    if(flagPrimeraVez == 0)
-    {
-        lastID= 1;
-    }
-    else
-    {
-        for(i=0; i< tam; i++)
-        {
-            if(listaPropietario[i].estado == 1)
-                if(listaPropietario[i].idPropietario > lastID)
-                {
-                    lastID= i+1;
-                }
-        }
-
-    }
-
-
-    return lastID;
-    */
     int retorno = 0;
     int i;
-    /*
-    if(flagPrimeraVez == 0)
-    {
-        retorno= 1;
-    }
-    */
     if(tam > 0 && listaPropietario != NULL)
     {
         for(i=0; i<tam; i++)
@@ -103,23 +73,39 @@ int pedirDatos(sPropietario listaPropietarios[], int tam, int idDisponible)
         fflush(stdin);
     }
     while(tarjetaValida == 0);
-    opRealizada= agregarPropietarios(listaPropietarios,idDisponible,nombre,apellido,direccion,tarjeta);
+    opRealizada= agregarPropietarios(listaPropietarios,idDisponible,nombre,apellido,direccion,tarjeta, tam);
     return opRealizada;
 }
-int agregarPropietarios(sPropietario listaPropietarios [], int idPropietario, char nombre[], char apellido[], char direccion [],char tarjeta[])
+int agregarPropietarios(sPropietario listaPropietarios [], int idPropietario, char nombre[], char apellido[], char direccion [],char tarjeta[],int tam)
 {
     int operacionCompletada;
-    int idPr;
-    idPr = idPropietario;
+    int retorno = -1;
+    int i;
+    if(tam > 0 && listaPropietarios != NULL)
+    {
+        retorno = -2;
+        for(i=0;i<tam;i++)
+        {
+            if(listaPropietarios[i].estado == 0)
+            {
+                retorno = i;
+                break;
+            }
+        }
+    }
     operacionCompletada = -1; // SE PONE POR DEFAULT COMO INVALIDO
 
-    listaPropietarios[idPr].idPropietario= idPr;
-    strcpy(listaPropietarios[idPr].direccion, direccion);
-    listaPropietarios[idPr].estado= 1;
-    strcpy(listaPropietarios[idPr].numeroTarjeta, tarjeta);
-    strcpy(listaPropietarios[idPr].nombre, nombre);
-    strcpy(listaPropietarios[idPr].apellido, apellido);
-    printf("Datos agregados\n");
+    if(retorno >= 0)
+    {
+        listaPropietarios[retorno].idPropietario= idPropietario;
+        strcpy(listaPropietarios[retorno].direccion, direccion);
+        listaPropietarios[retorno].estado= 1;
+        strcpy(listaPropietarios[retorno].numeroTarjeta, tarjeta);
+        strcpy(listaPropietarios[retorno].nombre, nombre);
+        strcpy(listaPropietarios[retorno].apellido, apellido);
+        printf("Datos agregados\n");
+    }
+
 
     operacionCompletada = 1; // LA OPERACION FUE REALIZADA CON EXITO
     return operacionCompletada;
@@ -129,12 +115,17 @@ int buscarPropietario ( sPropietario* listaPropietarios, int tam, int idProvista
 {
     int i;
     int idEncontrada;
-    idEncontrada= -1;
+    idEncontrada= -1; // -1 SI NO ENCUENTRA, 1 SI ENCUENTRA
     for (i=0; i < tam; i++)
     {
-        if (listaPropietarios[i].estado == 1 && listaPropietarios[i].idPropietario == idProvista) // SI EL EL EMPLEADO TIENE LA BANDERA DE VACIO BAJA Y LA ID PROVISTA CONCIDE CON LA ID DEL EMPLEADO
+        if (/*listaPropietarios[i].estado == 1 && */listaPropietarios[i].idPropietario == idProvista) // SI EL EL EMPLEADO TIENE LA BANDERA DE VACIO BAJA Y LA ID PROVISTA CONCIDE CON LA ID DEL EMPLEADO
         {
-            idEncontrada = i; // GUARDA EN idEncontrada LA POSICION EN EL ARRAY DEL EMPLEADO CON EL ID A BUSCAR
+            if(listaPropietarios[i].estado == 1)
+            {
+                idEncontrada= 1;
+                break;
+            }
+             //= i; // GUARDA EN idEncontrada LA POSICION EN EL ARRAY DEL EMPLEADO CON EL ID A BUSCAR
         }
     }
 
@@ -180,13 +171,15 @@ int modificarPropietario(sPropietario* listaPropietarios, int idEncontrado)
     return 0;
 }
 
-int bajaPropietarios(sPropietario listaPropietarios[], int idProvisto,int importeTotal)
+int bajaPropietarios(sPropietario listaPropietarios[], int idProvisto,int importeTotal, int tam)
 {
     int operacionCompletada;
     operacionCompletada = 0; // SE PONE POR DEFAULT COMO INVALIDO
     char respuestaContinuar;
-    printf("\nESTA A PUNTO DE DAR DE BAJA:\n ID: %d\nNOMBRE: %s\nAPELLIDO: %s\n", listaPropietarios[idProvisto].idPropietario, listaPropietarios[idProvisto].nombre,
-           listaPropietarios[idProvisto].apellido);
+    int index;
+    index = buscarIndexEnLista(listaPropietarios,tam, idProvisto);
+    printf("\nESTA A PUNTO DE DAR DE BAJA:\n ID: %d\nNOMBRE: %s\nAPELLIDO: %s\n", listaPropietarios[index].idPropietario, listaPropietarios[index].nombre,
+           listaPropietarios[index].apellido);
     printf("EL TOTAL A ABONAR POR TODOS SUS AUTOS AL RETIRARSE ES: $ %d\n",importeTotal);
     printf("DESEA CONTINUAR? (S)i o (N)o \nOPCION SELECCIONADA: ");
     scanf("%c",&respuestaContinuar);
@@ -195,7 +188,7 @@ int bajaPropietarios(sPropietario listaPropietarios[], int idProvisto,int import
     respuestaContinuar=toupper(respuestaContinuar);
     if(respuestaContinuar == 'S')
     {
-        listaPropietarios[idProvisto].estado= 0;
+        listaPropietarios[index].estado= 0;
         operacionCompletada= 1;
         printf("BAJA EXITOSA\n");
     }
@@ -226,7 +219,7 @@ void inicializarPropietariosHardcoded(sPropietario listaPropietarios[])
     char numeroTarjeta[6][53]= {"1234567891565478","456987413265897457","1265478956412354","13658974589569845","1236598741478547","254512541254125"};
     int i;
 
-    for(i=0; i<6; i++)
+    for(i=0; i<3; i++)
     {
         listaPropietarios[i].idPropietario=id[i];
         listaPropietarios[i].estado = 1;
@@ -314,4 +307,18 @@ void mostrarPropietario(sPropietario listaPropietarios[], int idProvista)
                listaPropietarios[idProvista].apellido, listaPropietarios[idProvista].direccion, listaPropietarios[idProvista].numeroTarjeta);
 
 
+}
+//** BUSCA INDEX EN LA LISTA DE PROP *** //
+int buscarIndexEnLista(sPropietario listaPropietarios[], int tam, int idProvista)
+{
+    int i;
+    int index;
+    for(i=0; i< tam; i++)
+    {
+        if(listaPropietarios[i].idPropietario == idProvista)
+        {
+            index= i;
+        }
+    }
+    return index;
 }

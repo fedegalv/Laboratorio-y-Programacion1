@@ -7,3 +7,4 @@ int verificarTarjeta(char []);
 int devolverHorasEstadia();
 int validacionPatente(char []);
 
+

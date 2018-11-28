@@ -97,7 +97,7 @@
 	"Funciones_aux.h"
 	"Propietarios.h"
 
-1543369688 source:e:\programacion\laboratorio-y-programacion1\primer_parcial\automoviles.c
+1543434816 source:e:\programacion\laboratorio-y-programacion1\primer_parcial\automoviles.c
 	<stdio.h>
 	<stdlib.h>
 	"string.h"
@@ -108,9 +108,9 @@
 
 1541553904 e:\programacion\laboratorio-y-programacion1\primer_parcial\automoviles.h
 
-1541555380 e:\programacion\laboratorio-y-programacion1\primer_parcial\funciones_aux.h
+1543439671 e:\programacion\laboratorio-y-programacion1\primer_parcial\funciones_aux.h
 
-1543172055 e:\programacion\laboratorio-y-programacion1\primer_parcial\propietarios.h
+1543439671 e:\programacion\laboratorio-y-programacion1\primer_parcial\propietarios.h
 
 1543370520 source:e:\programacion\laboratorio-y-programacion1\primer_parcial\funciones_aux.c
 	<stdio.h>
@@ -120,7 +120,7 @@
 	<time.h>
 	"Propietarios.h"
 
-1543372535 source:e:\programacion\laboratorio-y-programacion1\primer_parcial\propietarios.c
+1543439679 source:e:\programacion\laboratorio-y-programacion1\primer_parcial\propietarios.c
 	<stdio.h>
 	<stdlib.h>
 	"string.h"
@@ -128,7 +128,7 @@
 	"Propietarios.h"
 	"Funciones_aux.h"
 
-1543372689 source:e:\programacion\laboratorio-y-programacion1\primer_parcial\main.c
+1543440415 source:e:\programacion\laboratorio-y-programacion1\primer_parcial\main.c
 	<stdio.h>
 	<stdlib.h>
 	"Propietarios.h"
@@ -136,7 +136,7 @@
 	"Funciones_aux.h"
 	"menu.h"
 
-1543372689 source:e:\programacion\laboratorio-y-programacion1\primer_parcial\menu.c
+1543440415 source:e:\programacion\laboratorio-y-programacion1\primer_parcial\menu.c
 	<stdio.h>
 	<stdlib.h>
 	"string.h"
@@ -145,5 +145,5 @@
 	"Propietarios.h"
 	"Funciones_aux.h"
 
-1543372689 e:\programacion\laboratorio-y-programacion1\primer_parcial\menu.h
+1543440415 e:\programacion\laboratorio-y-programacion1\primer_parcial\menu.h
 

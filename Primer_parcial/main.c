@@ -10,7 +10,7 @@ REVISAR VERIFICACION DE PATENTES, CONVERTIRE A MAYUSCULAS EN FORMATE AAA 123
 ARRGLADO - ERROR MOSTRAR AUTOS ESTACIONADOS, EJ ID 1 MUESTRA 15, SIN ORDENAR MUESTRA BIEN LAS ID, lUEGO DE ORDENAR MUESTRA MAL
 REVISAR MOSTRAR RECAUDACION TOTAL DEL ESTACIONAMIENTO AGREGAR CHECKEO SI HAY AUTOS PARA mostrar
 REVISAR RECAUDACION POR MARCAS, RESULTADO ALETARIOS AGREGAR CHECKEO SI HAY AUTOS PARA mostrar
-MENU EGRESO ALUMNOS , AGREGAR CONFIRMACION, AGREGAR CHECKEO SI HAY AUTOS PARA EGRESAR
+OK-  MENU EGRESO ALUMNOS , AGREGAR CONFIRMACION, AGREGAR CHECKEO SI HAY AUTOS PARA EGRESAR
 10- MOSTAR AUTOS POR PROP, CHECKEAR SI HAY AUTOS PARA MOSTRAR
 OPCION 11 CRASHEA
 1111111111111111
@@ -31,16 +31,16 @@ int main()
     int idEncontrada;
     int cantProp = 0;
     int* pCantProp= &cantProp;
-    int estadiaOK, hayVehiculosPropOK;
-    int hayVehiculosOK;
-    int bajaPropOK;
+    //int estadiaOK;
+   // int hayVehiculosOK;
+    //int bajaPropOK;
     int autosEstacionados;
     char nombreProp[25];
-    int importeFinal;
+    //int importeFinal;
     int recaudacionFinal;
     int j;
     int aux;
-    int idPropietarioAuto;
+    //int idPropietarioAuto;
     autosEstacionados= 0;
     sPropietario listaPropietarios[CANT_PROP];
     sAutomovil listaAutomoviles[LUGAR_DISP];
@@ -63,7 +63,6 @@ int main()
             break;
         case 2:
             aux= propietariosActivos(listaPropietarios, CANT_PROP);
-            printf("prop activos %d", aux);
             menuModificar(listaPropietarios, aux, CANT_PROP);
             break;
         case 3:
@@ -73,69 +72,16 @@ int main()
             menuMostrarListaOrdenada(listaPropietarios, cantProp, CANT_PROP);
             break;
         case 5:
-            menuAltaVehiculos(listaPropietarios,listaAutomoviles, CANT_PROP,autosEstacionados);
+            autosEstacionados= menuAltaVehiculos(listaPropietarios,listaAutomoviles, CANT_PROP,autosEstacionados);
             break;
         case 6:
-            if(propietariosActivos(listaPropietarios, CANT_PROP) >=1)
-            {
-                do
-                {
-                    limpiarPantalla();
-                    estadiaOK=INVALIDO;
-                    printf("******MENU EGRESO DE AUTOS******\n\n");
-                    mostrarListaPropietarios(listaPropietarios,CANT_PROP);
-                    printf("Ingrese ID del propietario del auto: ");
-                    //printf("Para volver al menu principal escriba -1 ");
-                    idPropietarioAuto=ingresoNumero();
-                    idEncontrada= buscarPropietario(listaPropietarios,CANT_PROP,idPropietarioAuto);
-                    if(idEncontrada == NO_ENCONTRADO)
-                    {
-                        printf("ID NO ENCONTRADA O VALIDA\n");
-                        estadiaOK = 1;
-                        break;
-                    }
-                    else
-                    {
-                        hayVehiculosPropOK= hayVehiculoEnPropietario(listaAutomoviles,LUGAR_DISP,idEncontrada);
-                        if(hayVehiculosPropOK == VALIDO)
-                        {
-                            mostrarNombrePropietario(listaPropietarios,idEncontrada,nombreProp);
-                            estadiaOK= emitirTicket(listaAutomoviles,idEncontrada,LUGAR_DISP,nombreProp);
-
-                        }
-                        else
-                        {
-                            printf("NO HAY VEHICULOS PARA MOSTRAR\n");
-                            estadiaOK = 1;
-                            break;
-                        }
-                        //mostrarNombrePropietario(listaPropietarios,idEncontrada,nombreProp);
-                        //estadiaOK= emitirTicket(listaAutomoviles,idEncontrada,LUGAR_DISP,nombreProp);
-                    }
-                }
-                while(estadiaOK == INVALIDO);
-
-            }
-            else
-            {
-                printf("NO SE INGRESO NADA PARA MOSTRAR...\n");
-            }
-            limpiarPantalla();
+            menuBajaVehiculos(listaPropietarios, listaAutomoviles, LUGAR_DISP,CANT_PROP);
             break;
         case 7:
-            if(cantProp >=1)
-            {
-                 printf("******LISTA AUTOMOVILES EN ESTACIONAMIENTO******\n\n");
-                mostrarVehiculos(listaAutomoviles,LUGAR_DISP);
-            }
-            else
-            {
-                printf("NO SE INGRESO NADA PARA MOSTRAR...\n");
-            }
-            limpiarPantalla();
+            menuListaAutomoviles(listaAutomoviles, LUGAR_DISP);
             break;
         case 8:
-             if(cantProp >=1)
+             if(propietariosActivos(listaPropietarios, CANT_PROP) >=1)
             {
                 copiarVehiculosHistorial(listaAutomoviles, historialAutos, HISTORIAL_AUTOS);
                 recaudacionFinal= recaudacionTotal(historialAutos,HISTORIAL_AUTOS);
@@ -157,7 +103,7 @@ int main()
             limpiarPantalla();
             break;
         case 9:
-            if(cantProp >=1)
+            if(propietariosActivos(listaPropietarios, CANT_PROP) >=1)
             {
                 printf("********** RECAUDACION TOTAL MARCAS **********\n\n");
                 recaudacionTotalMarca(historialAutos,HISTORIAL_AUTOS);
@@ -170,6 +116,10 @@ int main()
             break;
             case 10:
             limpiarPantalla();
+            if(hayVehiculos(listaAutomoviles,LUGAR_DISP ) >=1)
+            {
+
+
                 printf("****** MOSTRAR AUTOS POR PROPIETARIOS******\n\n");
                 mostrarListaPropietarios(listaPropietarios,CANT_PROP);
                 printf("INGRESE ID A BUSCAR: ");
@@ -184,9 +134,15 @@ int main()
                 }
                 else
                 {
-                    mostrarNombrePropietario(listaPropietarios,idEncontrada,nombreProp);
-                    mostrarVehiculoEnProp(listaAutomoviles,idEncontrada,LUGAR_DISP);
+                    mostrarNombrePropietario(listaPropietarios,idProvista,nombreProp);
+                    mostrarVehiculoEnProp(listaAutomoviles,idProvista,LUGAR_DISP);
                 }
+            }
+             else
+            {
+                printf("NO SE INGRESO NADA PARA MOSTRAR O NO HAY VEHICULOS PARA MOSTRAR...\n");
+            }
+
                 limpiarPantalla();
             break;
             case 11:

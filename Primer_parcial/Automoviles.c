@@ -96,11 +96,11 @@ int pedirDatosAutomovil(sAutomovil listaAutomoviles[],int idPropietario,int inde
 }
 void iniciarAutosHardcoded (sAutomovil listaAutos[])
 {
-    int id[6] = {1,2,5,3,4,6};
+    int id[6] = {1,2,3,3,4,6};
     char patente[6][51] = {"aaa 453", "bgr 456", "huj 787", "lol 222", "wth 456","ahh 569"};
     int marcas[6] = {ALPHA_ROMEO,AUDI,FERRARI,FERRARI,OTROS,AUDI};
     int i;
-    for(i=0; i<6; i++)
+    for(i=0; i<3; i++)
     {
         listaAutos[i].idPropietario= id[i];
         listaAutos[i].marca = marcas[i];
