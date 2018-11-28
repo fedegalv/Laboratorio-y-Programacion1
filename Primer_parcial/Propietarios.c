@@ -56,6 +56,19 @@ int obtenerIdMasAltaProp(sPropietario listaPropietario[], int tam, int flagPrime
     return retorno+1;
 
 }
+int propietariosActivos(sPropietario listaPropetarios[], int tam)
+{
+    int cont= 0;
+    int i;
+    for(i=0; i < tam; i++)
+    {
+        if(listaPropetarios[i].estado == 1)
+        {
+            cont++;
+        }
+    }
+    return cont;
+}
 
 int pedirDatos(sPropietario listaPropietarios[], int tam, int idDisponible)
 {

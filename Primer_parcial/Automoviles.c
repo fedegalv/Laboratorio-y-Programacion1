@@ -111,11 +111,9 @@ void iniciarAutosHardcoded (sAutomovil listaAutos[])
 int agregarAutomovil(sAutomovil listaAutomovil[], int idPropietario, char patente[], int marca, int index)
 {
     int operacionCompletada;
-    int idPr;
-    idPr = idPropietario;
     operacionCompletada = 0; // SE PONE POR DEFAULT COMO INVALIDO
 
-    listaAutomovil[index].idPropietario= idPr;
+    listaAutomovil[index].idPropietario= idPropietario;
     listaAutomovil[index].marca= marca;
     listaAutomovil[index].estado= 1;
     strcpy(listaAutomovil[index].patente, patente);
@@ -321,7 +319,7 @@ int mostrarVehiculos(sAutomovil listaAutomoviles[], int tam)
         if(listaAutomoviles[i].estado == 1)
         {
             codigoMarcas(listaAutomoviles[i].marca,marcaTexto);
-            printf("%8d %20s %15s\n",listaAutomoviles[i].idPropietario+1, listaAutomoviles[i].patente, marcaTexto);
+            printf("%8d %20s %15s\n",listaAutomoviles[i].idPropietario, listaAutomoviles[i].patente, marcaTexto);
             hayVehiculos++;
         }
     }

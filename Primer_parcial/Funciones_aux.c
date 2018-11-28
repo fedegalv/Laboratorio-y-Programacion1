@@ -166,7 +166,7 @@ int validacionPatente(char patente[])
     int j;
     int patenteValida = 1;
     tamPantente= strlen(patente);
-    if(tamPantente == 6)
+    if(tamPantente == 7)
         for(j=0; j <3; j++)
         {
             if( isalpha(patente[j]) )
@@ -182,9 +182,9 @@ int validacionPatente(char patente[])
         }
     if(patenteValida == 1)
     {
-        for(j=3; j <= 6; j++)
+        for(j=3; j < 7; j++)
         {
-            if( isspace(patente[j] ))
+            if( j== 3 && isspace(patente[j] ))
             {
                 continue;
             }

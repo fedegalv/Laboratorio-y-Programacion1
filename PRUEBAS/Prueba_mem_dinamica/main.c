@@ -20,6 +20,7 @@ int main()
     scanf("%d", &tam);
     pListaAlumnos= (eAlumno*) malloc( sizeof(eAlumno)* tam ); // ASIGNAMOS ESPACIO DE MEMORIA AL HEAP SEGUN EL TAMANIO INDICADO POR USUARIO
     printf("tamanio del vector %d\n", tam);
+
     do{
     pedirDatos(pListaAlumnos, tam);
     mostrarDatos(pListaAlumnos, tam);
@@ -64,7 +65,7 @@ void mostrarDatos(eAlumno* pListaAlumnos, int tam)
     for(i=0; i<tam; i++)
         {
             printf("%s,", (pListaAlumnos+i)->nombre );// ESTOS DOS SON EQUIVALENTES
-            printf("%s", (*(pListaAlumnos+i)).nombre ); // EQUIVALENTES, SI NO SE USARA
+            //printf("%s", (*(pListaAlumnos+i)).nombre ); // EQUIVALENTES, SI NO SE USARA
             printf("%d\n", (pListaAlumnos+i)->edad );
         }
 

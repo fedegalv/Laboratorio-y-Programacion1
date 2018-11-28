@@ -24,4 +24,5 @@ void mostrarListaPropietarios(sPropietario [], int );
 void mostrarNombrePropietario(sPropietario [],int ,char []);
 int ordenarPropietarios(sPropietario [], int );
 void mostrarPropietario(sPropietario [], int );
+int propietariosActivos(sPropietario[] , int );
 

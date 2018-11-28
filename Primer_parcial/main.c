@@ -5,6 +5,17 @@
 #include "Funciones_aux.h"
 #include "menu.h"
 
+/*
+REVISAR VERIFICACION DE PATENTES, CONVERTIRE A MAYUSCULAS EN FORMATE AAA 123
+ARRGLADO - ERROR MOSTRAR AUTOS ESTACIONADOS, EJ ID 1 MUESTRA 15, SIN ORDENAR MUESTRA BIEN LAS ID, lUEGO DE ORDENAR MUESTRA MAL
+REVISAR MOSTRAR RECAUDACION TOTAL DEL ESTACIONAMIENTO AGREGAR CHECKEO SI HAY AUTOS PARA mostrar
+REVISAR RECAUDACION POR MARCAS, RESULTADO ALETARIOS AGREGAR CHECKEO SI HAY AUTOS PARA mostrar
+MENU EGRESO ALUMNOS , AGREGAR CONFIRMACION, AGREGAR CHECKEO SI HAY AUTOS PARA EGRESAR
+10- MOSTAR AUTOS POR PROP, CHECKEAR SI HAY AUTOS PARA MOSTRAR
+OPCION 11 CRASHEA
+1111111111111111
+*/
+
 #define CANT_PROP 20
 #define LUGAR_DISP 20
 #define HISTORIAL_AUTOS 40
@@ -16,19 +27,20 @@ int main()
 {
 
     int opcion;
-    int cantProp = 0;
-    int* pCantProp= &cantProp;
     int idProvista;
     int idEncontrada;
-    int movilOK, estadiaOK, hayVehiculosPropOK;
+    int cantProp = 0;
+    int* pCantProp= &cantProp;
+    int estadiaOK, hayVehiculosPropOK;
     int hayVehiculosOK;
     int bajaPropOK;
-    int idPropietarioAuto;
     int autosEstacionados;
     char nombreProp[25];
     int importeFinal;
     int recaudacionFinal;
     int j;
+    int aux;
+    int idPropietarioAuto;
     autosEstacionados= 0;
     sPropietario listaPropietarios[CANT_PROP];
     sAutomovil listaAutomoviles[LUGAR_DISP];
@@ -50,124 +62,21 @@ int main()
             cantProp= altaPropietarios(listaPropietarios,CANT_PROP,pCantProp);
             break;
         case 2:
-            if(cantProp >=1)
-            {
-                limpiarPantalla();
-                printf("****** MENU DE MODIFICACIONES ******\n\n");
-                mostrarListaPropietarios(listaPropietarios,CANT_PROP);
-                printf("INGRESE ID A MODIFICAR: ");
-                idProvista= ingresoNumero();
-                fflush(stdin);
-                idEncontrada= buscarPropietario(listaPropietarios,CANT_PROP,idProvista);
-                if(idEncontrada == NO_ENCONTRADO)
-                {
-                    printf("ID NO ENCONTRADA O VALIDA\n");
-                    limpiarPantalla();
-                    break;
-                }
-                else
-                {
-                    //printf("ID ENCONTRADA");
-                    modificarPropietario(listaPropietarios,idEncontrada);
-                }
-            }
-            else
-            {
-                printf("NO SE INGRESO NADA PARA MOSTRAR...\n");
-            }
-            limpiarPantalla();
+            aux= propietariosActivos(listaPropietarios, CANT_PROP);
+            printf("prop activos %d", aux);
+            menuModificar(listaPropietarios, aux, CANT_PROP);
             break;
         case 3:
-            if(cantProp >=1)
-            {
-                limpiarPantalla();
-                printf("****** MENU BAJA DE PROPIETARIOS ******\n\n");
-                mostrarListaPropietarios(listaPropietarios,CANT_PROP);
-                printf("INGRESE ID A DAR DE BAJA: ");
-                idProvista= ingresoNumero();
-                fflush(stdin);
-                idEncontrada= buscarPropietario(listaPropietarios,CANT_PROP,idProvista);
-                if(idEncontrada == NO_ENCONTRADO)
-                {
-                    printf("ID NO ENCONTRADA O VALIDA\n");
-                    limpiarPantalla();
-                    break;
-                }
-                else
-                {
-                    //printf("ID ENCONTRADA\n");
-
-                    hayVehiculosOK= hayVehiculos(listaAutomoviles,LUGAR_DISP);
-                    if(hayVehiculosOK == INVALIDO)
-                    {
-                        printf("NO HAY VEHICULOS PARA MOSTRAR\n");
-                        importeFinal= totalPagarPropietario(listaAutomoviles,idEncontrada,LUGAR_DISP);
-                        bajaPropietarios(listaPropietarios,idEncontrada,importeFinal);
-                    }
-                    else
-                    {
-                        mostrarNombrePropietario(listaPropietarios,idEncontrada,nombreProp);
-                        importeFinal= totalPagarPropietario(listaAutomoviles,idEncontrada,LUGAR_DISP);
-                        bajaPropOK=bajaPropietarios(listaPropietarios,idEncontrada,importeFinal);
-                        if(bajaPropOK == VALIDO)
-                        {
-                            bajaAutomoviles(listaAutomoviles,idEncontrada,LUGAR_DISP);
-                        }
-                    }
-
-                }
-            }
-            else
-            {
-                printf("NO SE INGRESO NADA PARA MOSTRAR...\n");
-            }
-            limpiarPantalla();
+            cantProp= menuBajaPropietarios(listaPropietarios,listaAutomoviles, CANT_PROP, LUGAR_DISP, cantProp);
             break;
         case 4:
-            if(cantProp >=1)
-            {
-                limpiarPantalla();
-                //printf("****** LISTA PROPIETARIOS ******\n\n");
-                //mostrarListaPropietarios(listaPropietarios,CANT_PROP);
-                printf("****** LISTA PROPIETARIOS ORDENADA******\n\n");
-                ordenarPropietarios(listaPropietarios,CANT_PROP);
-                mostrarListaPropietarios(listaPropietarios,CANT_PROP);
-            }
-            else
-            {
-                printf("NO SE INGRESO NADA PARA MOSTRAR...\n");
-            }
-            limpiarPantalla();
+            menuMostrarListaOrdenada(listaPropietarios, cantProp, CANT_PROP);
             break;
         case 5:
-            do
-            {
-                fflush(stdin);
-                limpiarPantalla();
-                movilOK=INVALIDO;
-                printf("****** MENU ALTAS AUTOMOVILES ******\n\n");
-                mostrarListaPropietarios(listaPropietarios,CANT_PROP);
-                printf("Ingrese ID del propietario del auto: ");
-                idPropietarioAuto=ingresoNumero();
-                idEncontrada= buscarPropietario(listaPropietarios,CANT_PROP,idPropietarioAuto);
-                if(idEncontrada == NO_ENCONTRADO)
-                {
-                    printf("ID NO ENCONTRADA O VALIDA\n");
-                    break;
-                }
-                else
-                {
-                    movilOK= pedirDatosAutomovil(listaAutomoviles,idEncontrada,autosEstacionados);
-                    autosEstacionados++;
-                    printf("AUTOMOVIL AGREGADO\n");
-                }
-
-            }
-            while(movilOK == INVALIDO);
-            limpiarPantalla();
+            menuAltaVehiculos(listaPropietarios,listaAutomoviles, CANT_PROP,autosEstacionados);
             break;
         case 6:
-            if(cantProp >=1)
+            if(propietariosActivos(listaPropietarios, CANT_PROP) >=1)
             {
                 do
                 {
@@ -206,6 +115,10 @@ int main()
                 }
                 while(estadiaOK == INVALIDO);
 
+            }
+            else
+            {
+                printf("NO SE INGRESO NADA PARA MOSTRAR...\n");
             }
             limpiarPantalla();
             break;
