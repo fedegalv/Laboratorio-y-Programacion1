@@ -131,16 +131,17 @@ int buscarPropietario ( sPropietario* listaPropietarios, int tam, int idProvista
 
     return idEncontrada;
 }
-int modificarPropietario(sPropietario* listaPropietarios, int idEncontrado)
+int modificarPropietario(sPropietario* listaPropietarios, int idEncontrado,int tam)
 {
     char respuestaContinuar;
     char nuevaTarjeta[53];
     int tarjetaValida;
+    int retorno= buscarIndexEnLista(listaPropietarios, tam, idEncontrado);
 
     fflush(stdin);
     printf("MODIFICACION DE DATOS\n\n");
     printf("%4s %15s %15s %19s \n", "ID", "Nombre","Apellido", "NRO TARJETA");
-    printf("%4d %15s %15s %19s \n\n", listaPropietarios[idEncontrado].idPropietario,listaPropietarios[idEncontrado].nombre,listaPropietarios[idEncontrado].apellido, listaPropietarios[idEncontrado].numeroTarjeta);
+    printf("%4d %15s %15s %19s \n\n", listaPropietarios[retorno].idPropietario,listaPropietarios[retorno].nombre,listaPropietarios[retorno].apellido, listaPropietarios[retorno].numeroTarjeta);
 
 
     printf("DATO A MODIFICAR: TARJETA DE CREDITO\n");
@@ -160,7 +161,7 @@ int modificarPropietario(sPropietario* listaPropietarios, int idEncontrado)
             fflush(stdin);
         }
         while(tarjetaValida == 0);
-        strcpy(listaPropietarios[idEncontrado].numeroTarjeta, nuevaTarjeta);
+        strcpy(listaPropietarios[retorno].numeroTarjeta, nuevaTarjeta);
         printf("DATO MODIFICADO CON EXITO...\n");
     }
     else

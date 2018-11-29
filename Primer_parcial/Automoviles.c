@@ -39,7 +39,7 @@ int autosBuscarLugarLibre(sAutomovil listaAutomoviles[],int tam)
     return retorno;
 }
 
-int pedirDatosAutomovil(sAutomovil listaAutomoviles[],int idPropietario,int index)
+int pedirDatosAutomovil(sAutomovil listaAutomoviles[], sAutomovil historialAutos[], int idPropietario, int maxAutos, int pCantHistorial)
 {
     char patente[51];
     int marca;
@@ -91,7 +91,8 @@ int pedirDatosAutomovil(sAutomovil listaAutomoviles[],int idPropietario,int inde
     }
     while(marcaValida == 0);
 
-    opRealizada= agregarAutomovil(listaAutomoviles,idPropietario,patente,marca,index);
+    opRealizada= agregarAutomovil(listaAutomoviles, idPropietario,patente,marca, maxAutos);
+    agregarHistorialVehiculos( historialAutos, 40, idPropietario,patente,marca, pCantHistorial);
     return opRealizada;
 }
 void iniciarAutosHardcoded (sAutomovil listaAutos[])
@@ -108,15 +109,31 @@ void iniciarAutosHardcoded (sAutomovil listaAutos[])
         strcpy(listaAutos[i].patente, patente[i]);
     }
 }
-int agregarAutomovil(sAutomovil listaAutomovil[], int idPropietario, char patente[], int marca, int index)
+int agregarAutomovil(sAutomovil listaAutomovil[], int idPropietario, char patente[], int marca, int tam)
 {
     int operacionCompletada;
+    int index, i;
     operacionCompletada = 0; // SE PONE POR DEFAULT COMO INVALIDO
+    //BUSCA LUGAR VACIO
+    if(tam > 0 && listaAutomovil != NULL)
+    {
+        index = -2;
+        for(i=0;i<tam;i++)
+        {
+            if(listaAutomovil[i].estado == 0)
+            {
+                index = i;
+                break;
+            }
+        }
+    }
 
     listaAutomovil[index].idPropietario= idPropietario;
     listaAutomovil[index].marca= marca;
     listaAutomovil[index].estado= 1;
     strcpy(listaAutomovil[index].patente, patente);
+
+
 
     operacionCompletada = 1; // LA OPERACION FUE REALIZADA CON EXITO
     return operacionCompletada;
@@ -240,10 +257,9 @@ int totalPagarPropietario(sAutomovil listaAutomovil[],int idProvisto,int tam)
     int importeFinal;
     importeFinal = 0;
 
-    printf("\n%10s %15s %15s %15s %15s\n","PATENTE","MARCA","HORAS ESTADIA","PRECIO ESTADIA","TOTAL ESTADIA");
     for (i= 0; i < tam; i++)
     {
-        if(listaAutomovil[i].idPropietario == idProvisto && listaAutomovil[i].estado == 1)
+        if(/*listaAutomovil[i].idPropietario == idProvisto &&*/ listaAutomovil[i].estado == 1)
         {
             horasEstadia= devolverHorasEstadia();
             precioEstadia= precioPorHora(listaAutomovil[i].marca);
@@ -337,6 +353,19 @@ int copiarVehiculosHistorial(sAutomovil listaAutomoviles[], sAutomovil historial
     }
     return 1;
 }
+int agregarHistorialVehiculos(sAutomovil historialAutos[], int maxHistorial, int idPropietario, char patente[], int marca, int pCantHistorial )
+{
+    int indexHistorial= pCantHistorial;
+    printf("cant historial //  %d\n", pCantHistorial);
+    //indexHistorial= autosBuscarLugarLibre(historialAutos, maxHistorial);
+    historialAutos[indexHistorial].idPropietario= idPropietario;
+    historialAutos[indexHistorial].marca= marca;
+    historialAutos[indexHistorial].estado= 1;
+    strcpy(historialAutos[indexHistorial].patente, patente);
+    pCantHistorial= pCantHistorial+1;
+    return 1;
+
+}
 
 int recaudacionTotal(sAutomovil historialAutos[], int tam)
 {
@@ -344,7 +373,6 @@ int recaudacionTotal(sAutomovil historialAutos[], int tam)
     int recaudacionTotal;
     int horasEstadia, precioEstadia, totalEstadia;
     recaudacionTotal = 0;
-    printf("\n%8s %20s %15s\n","ID PROP","PATENTE","MARCA");
     for (i= 0; i < tam; i++)
     {
         if(historialAutos[i].estado == 1)

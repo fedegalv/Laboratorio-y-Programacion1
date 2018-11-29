@@ -30,17 +30,15 @@ int main()
     int idProvista;
     int idEncontrada;
     int cantProp = 0;
+    int cantHistorial=0;
+    int* pCantHistoria= &cantHistorial;
     int* pCantProp= &cantProp;
-    //int estadiaOK;
-   // int hayVehiculosOK;
-    //int bajaPropOK;
     int autosEstacionados;
     char nombreProp[25];
-    //int importeFinal;
     int recaudacionFinal;
     int j;
     int aux;
-    //int idPropietarioAuto;
+    int contHistorial;
     autosEstacionados= 0;
     sPropietario listaPropietarios[CANT_PROP];
     sAutomovil listaAutomoviles[LUGAR_DISP];
@@ -72,7 +70,7 @@ int main()
             menuMostrarListaOrdenada(listaPropietarios, cantProp, CANT_PROP);
             break;
         case 5:
-            autosEstacionados= menuAltaVehiculos(listaPropietarios,listaAutomoviles, CANT_PROP,autosEstacionados);
+            autosEstacionados= menuAltaVehiculos(listaPropietarios,listaAutomoviles,historialAutos, CANT_PROP,autosEstacionados, LUGAR_DISP, pCantHistoria);
             break;
         case 6:
             menuBajaVehiculos(listaPropietarios, listaAutomoviles, LUGAR_DISP,CANT_PROP);
@@ -81,20 +79,30 @@ int main()
             menuListaAutomoviles(listaAutomoviles, LUGAR_DISP);
             break;
         case 8:
-             if(propietariosActivos(listaPropietarios, CANT_PROP) >=1)
+            if(propietariosActivos(listaPropietarios, CANT_PROP) >=1)
             {
-                copiarVehiculosHistorial(listaAutomoviles, historialAutos, HISTORIAL_AUTOS);
-                recaudacionFinal= recaudacionTotal(historialAutos,HISTORIAL_AUTOS);
-                printf("********** RECAUDACION TOTAL A TRAVES DEL TIEMPO **********\n\n");
-                for(j= 0; j < HISTORIAL_AUTOS; j++)
+                if(contHistorial == 0)
                 {
-                    if( historialAutos[j].estado == 1)
-                    {
-                        totalPagarPropietario(historialAutos, j, HISTORIAL_AUTOS);
-                    }
+                    //copiarVehiculosHistorial(listaAutomoviles, historialAutos, HISTORIAL_AUTOS);
+                    recaudacionFinal= recaudacionTotal(historialAutos,HISTORIAL_AUTOS);
+                    printf("********** RECAUDACION TOTAL A TRAVES DEL TIEMPO **********\n\n");
+                    printf("\n%10s %15s %15s %15s %15s\n","PATENTE","MARCA","HORAS ESTADIA","PRECIO ESTADIA","TOTAL ESTADIA");
+                    totalPagarPropietario(historialAutos, j, HISTORIAL_AUTOS);
+                    printf("\n\nRECAUDACION TOTAL: $%d\n", recaudacionFinal);
+                    contHistorial= 1;
 
                 }
-                printf("\n\nRECAUDACION TOTAL: $%d\n", recaudacionFinal);
+                else
+                {
+                    //agregarHistorialVehiculos(listaAutomoviles,historialAutos,LUGAR_DISP, HISTORIAL_AUTOS);
+                    recaudacionFinal= recaudacionTotal(historialAutos,HISTORIAL_AUTOS);
+                    printf("********** RECAUDACION TOTAL A TRAVES DEL TIEMPO **********\n\n");
+                    printf("\n%10s %15s %15s %15s %15s\n","PATENTE","MARCA","HORAS ESTADIA","PRECIO ESTADIA","TOTAL ESTADIA");
+                    totalPagarPropietario(historialAutos, j, HISTORIAL_AUTOS);
+                    printf("\n\nRECAUDACION TOTAL: $%d\n", recaudacionFinal);
+                }
+
+
             }
             else
             {
@@ -108,13 +116,13 @@ int main()
                 printf("********** RECAUDACION TOTAL MARCAS **********\n\n");
                 recaudacionTotalMarca(historialAutos,HISTORIAL_AUTOS);
             }
-             else
+            else
             {
                 printf("NO SE INGRESO NADA PARA MOSTRAR...\n");
             }
             limpiarPantalla();
             break;
-            case 10:
+        case 10:
             limpiarPantalla();
             if(hayVehiculos(listaAutomoviles,LUGAR_DISP ) >=1)
             {
@@ -138,38 +146,38 @@ int main()
                     mostrarVehiculoEnProp(listaAutomoviles,idProvista,LUGAR_DISP);
                 }
             }
-             else
+            else
             {
                 printf("NO SE INGRESO NADA PARA MOSTRAR O NO HAY VEHICULOS PARA MOSTRAR...\n");
             }
 
-                limpiarPantalla();
+            limpiarPantalla();
             break;
-            case 11:
-                printf("***** PROPIETARIOS CON AUDI *****");
-                for(j=0; j<CANT_PROP ; j++)
+        case 11:
+            printf("***** PROPIETARIOS CON AUDI *****");
+            for(j=0; j<CANT_PROP ; j++)
+            {
+                if(listaPropietarios[j].estado == VALIDO)
                 {
-                    if(listaPropietarios[j].estado == VALIDO)
-                    {
-                        idProvista= buscarAudi(listaAutomoviles,LUGAR_DISP);
-                        mostrarPropietario(listaPropietarios,idProvista);
-
-                    }
+                    idProvista= buscarAudi(listaAutomoviles,LUGAR_DISP);
+                    mostrarPropietario(listaPropietarios,idProvista);
 
                 }
 
-                break;
-                case 12:
-                    printf("***** PROPIETARIOS CON AUDI *****");
-                for(j=0; j<CANT_PROP ; j++)
-                {
-                    if(listaPropietarios[j].estado == VALIDO)
-                    {
+            }
 
-                    }
+            break;
+        case 12:
+            printf("***** PROPIETARIOS CON AUDI *****");
+            for(j=0; j<CANT_PROP ; j++)
+            {
+                if(listaPropietarios[j].estado == VALIDO)
+                {
 
                 }
-                    break;
+
+            }
+            break;
 
         }
     }

@@ -13,8 +13,8 @@ typedef struct
 void inicializarAutosEstado(sAutomovil [], int );
 int autosBuscarLugarLibre(sAutomovil [],int );
 void iniciarAutosHardcoded (sAutomovil []);
-int pedirDatosAutomovil(sAutomovil [], int,int);
-int agregarAutomovil(sAutomovil [], int , char [], int ,int);
+int pedirDatosAutomovil(sAutomovil [],sAutomovil [], int,int, int pCantHistorial);
+int agregarAutomovil(sAutomovil [], int , char [],int, int);
 int emitirTicket(sAutomovil [], int ,int, char nombreProp[] );
 int totalPagarPropietario(sAutomovil [],int ,int );
 int bajaAutomoviles(sAutomovil [], int , int );
@@ -28,3 +28,4 @@ int precioPorHora(int );
 int recaudacionTotalMarca(sAutomovil  [], int );
 void mostrarVehiculoEnProp(sAutomovil [], int , int );
 int buscarAudi(sAutomovil [], int );
+int agregarHistorialVehiculos(sAutomovil [], int, int idPropietario, char patente[], int marca, int pCantHistorial );

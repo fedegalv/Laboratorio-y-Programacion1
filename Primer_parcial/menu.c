@@ -50,7 +50,7 @@ void menuModificar(sPropietario listaPropietarios[], int cantProp, int tam)
         else
         {
             //printf("ID ENCONTRADA");
-            modificarPropietario(listaPropietarios,idProvista);
+            modificarPropietario(listaPropietarios,idProvista, tam);
         }
     }
     else
@@ -135,7 +135,7 @@ void menuMostrarListaOrdenada(sPropietario listaPropietarios[],int cantProp, int
     limpiarPantalla();
 }
 
-int menuAltaVehiculos(sPropietario listaPropietarios[],sAutomovil listaAutomoviles[], int cantProp,int autosEstacionados)
+int menuAltaVehiculos(sPropietario listaPropietarios[],sAutomovil listaAutomoviles[], sAutomovil historialAutos[] ,int cantProp,int autosEstacionados, int maxAutos, int* pCantHistorial)
 {
     int movilOK;
     int idPropietarioAuto;
@@ -162,7 +162,7 @@ int menuAltaVehiculos(sPropietario listaPropietarios[],sAutomovil listaAutomovil
             }
             else
             {
-                movilOK= pedirDatosAutomovil(listaAutomoviles,idPropietarioAuto,autosEstacionados);
+                movilOK= pedirDatosAutomovil(listaAutomoviles, historialAutos,idPropietarioAuto,maxAutos, *pCantHistorial);
                 autosEstacionados++;
                 printf("AUTOMOVIL AGREGADO\n");
             }
