@@ -22,11 +22,10 @@ void inicializarAutosEstado(sAutomovil listaAutomoviles[], int tam)
 }
 int autosBuscarLugarLibre(sAutomovil listaAutomoviles[],int tam)
 {
-    int retorno = -1;
+    int retorno;
     int i;
     if(tam > 0 && listaAutomoviles != NULL)
     {
-        retorno = -2;
         for(i=0;i<tam;i++)
         {
             if(listaAutomoviles[i].estado == 0)
@@ -39,7 +38,7 @@ int autosBuscarLugarLibre(sAutomovil listaAutomoviles[],int tam)
     return retorno;
 }
 
-int pedirDatosAutomovil(sAutomovil listaAutomoviles[], sAutomovil historialAutos[], int idPropietario, int maxAutos, int pCantHistorial)
+int pedirDatosAutomovil(sAutomovil listaAutomoviles[], sAutomovil historialAutos[], int idPropietario, int maxAutos, int autosActivos)
 {
     char patente[51];
     int marca;
@@ -91,8 +90,8 @@ int pedirDatosAutomovil(sAutomovil listaAutomoviles[], sAutomovil historialAutos
     }
     while(marcaValida == 0);
 
-    opRealizada= agregarAutomovil(listaAutomoviles, idPropietario,patente,marca, maxAutos);
-    agregarHistorialVehiculos( historialAutos, 40, idPropietario,patente,marca, pCantHistorial);
+    opRealizada= agregarAutomovil(listaAutomoviles, idPropietario,patente,marca, maxAutos, autosActivos);
+    agregarHistorialVehiculos( historialAutos, 40, idPropietario,patente,marca);
     return opRealizada;
 }
 void iniciarAutosHardcoded (sAutomovil listaAutos[])
@@ -109,12 +108,14 @@ void iniciarAutosHardcoded (sAutomovil listaAutos[])
         strcpy(listaAutos[i].patente, patente[i]);
     }
 }
-int agregarAutomovil(sAutomovil listaAutomovil[], int idPropietario, char patente[], int marca, int tam)
+int agregarAutomovil(sAutomovil listaAutomovil[], int idPropietario, char patente[], int marca, int tam, int autosActivos)
 {
     int operacionCompletada;
-    int index, i;
+    int index= autosActivos;
+    //int i;
     operacionCompletada = 0; // SE PONE POR DEFAULT COMO INVALIDO
     //BUSCA LUGAR VACIO
+    /*
     if(tam > 0 && listaAutomovil != NULL)
     {
         index = -2;
@@ -126,8 +127,8 @@ int agregarAutomovil(sAutomovil listaAutomovil[], int idPropietario, char patent
                 break;
             }
         }
-    }
-
+    */
+    printf("index lista normal //%d\n", index);
     listaAutomovil[index].idPropietario= idPropietario;
     listaAutomovil[index].marca= marca;
     listaAutomovil[index].estado= 1;
@@ -274,6 +275,33 @@ int totalPagarPropietario(sAutomovil listaAutomovil[],int idProvisto,int tam)
 
     return importeFinal;
 }
+int totalPagarPropietarioHistorial(sAutomovil listaHistorial[],int idProvisto,int tam)
+{
+    int i;
+    char marcaTexto[15];
+    int totalEstadia;
+    int horasEstadia;
+    int precioEstadia;
+    int importeFinal;
+    importeFinal = 0;
+
+    for (i= 0; i < tam; i++)
+    {
+        if(listaHistorial[i].estado == 1)
+        {
+            horasEstadia= devolverHorasEstadia();
+            precioEstadia= precioPorHora(listaHistorial[i].marca);
+            totalEstadia= precioEstadia * horasEstadia;
+            codigoMarcas(listaHistorial[i].marca,marcaTexto);
+            printf("%10s %15s %15d %15d %15d\n",listaHistorial[i].patente,marcaTexto, horasEstadia, precioEstadia, totalEstadia);
+            importeFinal= importeFinal+ totalEstadia;
+        }
+    }
+    //printf("importe total %d\n",importeFinal);
+
+
+    return importeFinal;
+}
 int bajaAutomoviles(sAutomovil listaAutomovil[], int idProvisto, int tam)
 {
     int cont;
@@ -353,16 +381,16 @@ int copiarVehiculosHistorial(sAutomovil listaAutomoviles[], sAutomovil historial
     }
     return 1;
 }
-int agregarHistorialVehiculos(sAutomovil historialAutos[], int maxHistorial, int idPropietario, char patente[], int marca, int pCantHistorial )
+int agregarHistorialVehiculos(sAutomovil historialAutos[], int maxHistorial, int idPropietario, char patente[], int marca )
 {
-    int indexHistorial= pCantHistorial;
-    printf("cant historial //  %d\n", pCantHistorial);
-    //indexHistorial= autosBuscarLugarLibre(historialAutos, maxHistorial);
+    int indexHistorial;
+    //printf("cant historial //  %d\n", indexHistorial);
+    indexHistorial= autosBuscarLugarLibre(historialAutos, maxHistorial);
+    printf("historial guard pos // %d\n", indexHistorial);
     historialAutos[indexHistorial].idPropietario= idPropietario;
     historialAutos[indexHistorial].marca= marca;
     historialAutos[indexHistorial].estado= 1;
     strcpy(historialAutos[indexHistorial].patente, patente);
-    pCantHistorial= pCantHistorial+1;
     return 1;
 
 }

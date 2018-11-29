@@ -30,15 +30,11 @@ int main()
     int idProvista;
     int idEncontrada;
     int cantProp = 0;
-    int cantHistorial=0;
-    int* pCantHistoria= &cantHistorial;
     int* pCantProp= &cantProp;
     int autosEstacionados;
     char nombreProp[25];
-    int recaudacionFinal;
     int j;
     int aux;
-    int contHistorial;
     autosEstacionados= 0;
     sPropietario listaPropietarios[CANT_PROP];
     sAutomovil listaAutomoviles[LUGAR_DISP];
@@ -70,7 +66,7 @@ int main()
             menuMostrarListaOrdenada(listaPropietarios, cantProp, CANT_PROP);
             break;
         case 5:
-            autosEstacionados= menuAltaVehiculos(listaPropietarios,listaAutomoviles,historialAutos, CANT_PROP,autosEstacionados, LUGAR_DISP, pCantHistoria);
+            autosEstacionados= menuAltaVehiculos(listaPropietarios,listaAutomoviles,historialAutos, CANT_PROP,autosEstacionados, LUGAR_DISP, autosEstacionados);
             break;
         case 6:
             menuBajaVehiculos(listaPropietarios, listaAutomoviles, LUGAR_DISP,CANT_PROP);
@@ -79,36 +75,7 @@ int main()
             menuListaAutomoviles(listaAutomoviles, LUGAR_DISP);
             break;
         case 8:
-            if(propietariosActivos(listaPropietarios, CANT_PROP) >=1)
-            {
-                if(contHistorial == 0)
-                {
-                    //copiarVehiculosHistorial(listaAutomoviles, historialAutos, HISTORIAL_AUTOS);
-                    recaudacionFinal= recaudacionTotal(historialAutos,HISTORIAL_AUTOS);
-                    printf("********** RECAUDACION TOTAL A TRAVES DEL TIEMPO **********\n\n");
-                    printf("\n%10s %15s %15s %15s %15s\n","PATENTE","MARCA","HORAS ESTADIA","PRECIO ESTADIA","TOTAL ESTADIA");
-                    totalPagarPropietario(historialAutos, j, HISTORIAL_AUTOS);
-                    printf("\n\nRECAUDACION TOTAL: $%d\n", recaudacionFinal);
-                    contHistorial= 1;
-
-                }
-                else
-                {
-                    //agregarHistorialVehiculos(listaAutomoviles,historialAutos,LUGAR_DISP, HISTORIAL_AUTOS);
-                    recaudacionFinal= recaudacionTotal(historialAutos,HISTORIAL_AUTOS);
-                    printf("********** RECAUDACION TOTAL A TRAVES DEL TIEMPO **********\n\n");
-                    printf("\n%10s %15s %15s %15s %15s\n","PATENTE","MARCA","HORAS ESTADIA","PRECIO ESTADIA","TOTAL ESTADIA");
-                    totalPagarPropietario(historialAutos, j, HISTORIAL_AUTOS);
-                    printf("\n\nRECAUDACION TOTAL: $%d\n", recaudacionFinal);
-                }
-
-
-            }
-            else
-            {
-                printf("NO SE INGRESO NADA PARA MOSTRAR...\n");
-            }
-            limpiarPantalla();
+            menuListarRecaudacionTotalEstacionamiento(historialAutos,HISTORIAL_AUTOS);
             break;
         case 9:
             if(propietariosActivos(listaPropietarios, CANT_PROP) >=1)

@@ -135,7 +135,7 @@ void menuMostrarListaOrdenada(sPropietario listaPropietarios[],int cantProp, int
     limpiarPantalla();
 }
 
-int menuAltaVehiculos(sPropietario listaPropietarios[],sAutomovil listaAutomoviles[], sAutomovil historialAutos[] ,int cantProp,int autosEstacionados, int maxAutos, int* pCantHistorial)
+int menuAltaVehiculos(sPropietario listaPropietarios[],sAutomovil listaAutomoviles[], sAutomovil historialAutos[] ,int cantProp,int autosEstacionados, int maxAutos, int autosActivos)
 {
     int movilOK;
     int idPropietarioAuto;
@@ -162,7 +162,7 @@ int menuAltaVehiculos(sPropietario listaPropietarios[],sAutomovil listaAutomovil
             }
             else
             {
-                movilOK= pedirDatosAutomovil(listaAutomoviles, historialAutos,idPropietarioAuto,maxAutos, *pCantHistorial);
+                movilOK= pedirDatosAutomovil(listaAutomoviles, historialAutos,idPropietarioAuto,maxAutos, autosActivos);
                 autosEstacionados++;
                 printf("AUTOMOVIL AGREGADO\n");
             }
@@ -183,6 +183,7 @@ void menuBajaVehiculos(sPropietario listaPropietarios[], sAutomovil listaAutomov
     int idEncontrada;
     int hayVehiculosPropOK;
     char nombreProp[25];
+    int index;
     if(hayVehiculos(listaAutomoviles,maxVehiculos ) >=1)
     {
         do
@@ -206,7 +207,8 @@ void menuBajaVehiculos(sPropietario listaPropietarios[], sAutomovil listaAutomov
                 hayVehiculosPropOK= hayVehiculoEnPropietario(listaAutomoviles,maxVehiculos,idPropietarioAuto);
                 if(hayVehiculosPropOK == VALIDO)
                 {
-                    mostrarNombrePropietario(listaPropietarios,idPropietarioAuto,nombreProp);
+                    index = buscarIndexEnLista(listaPropietarios,maxProp, idPropietarioAuto);
+                    mostrarNombrePropietario(listaPropietarios,index,nombreProp);
                     estadiaOK= emitirTicket(listaAutomoviles,idPropietarioAuto,maxVehiculos,nombreProp);
 
                 }
@@ -240,6 +242,26 @@ void menuListaAutomoviles(sAutomovil listaAutomoviles[], int maxAutos)
             else
             {
                 printf("NO SE INGRESO NADA PARA MOSTRAR O NO HAY VEHICULOS PARA MOSTRAR...\n");
+            }
+            limpiarPantalla();
+}
+
+void menuListarRecaudacionTotalEstacionamiento(sAutomovil historialAutos[], int maxVehiculos)
+{
+    int recaudacionFinal;
+    if(hayVehiculos(historialAutos,maxVehiculos ) >=1)
+            {
+                /// SE PODRIA MEJORAR GUARDANDO EL PRIMER TOTAL Y LUEGO SUMARLE LOS AUTOS QUE SE SUMEN
+                    recaudacionFinal= recaudacionTotal(historialAutos,maxVehiculos);
+                    printf("********** RECAUDACION TOTAL A TRAVES DEL TIEMPO **********\n\n");
+                    printf("\n%10s %15s %15s %15s %15s\n","PATENTE","MARCA","HORAS ESTADIA","PRECIO ESTADIA","TOTAL ESTADIA");
+                    totalPagarPropietarioHistorial(historialAutos, 0, maxVehiculos);
+                    printf("\n\nRECAUDACION TOTAL: $%d\n", recaudacionFinal);
+
+            }
+            else
+            {
+                printf("NO SE INGRESO NADA PARA MOSTRAR...\n");
             }
             limpiarPantalla();
 }
