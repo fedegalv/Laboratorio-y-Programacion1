@@ -128,7 +128,7 @@ int agregarAutomovil(sAutomovil listaAutomovil[], int idPropietario, char patent
             }
         }
     }
-    printf("index lista normal //%d\n", index);
+   // printf("index lista normal //%d\n", index);
     listaAutomovil[index].idPropietario= idPropietario;
     listaAutomovil[index].marca= marca;
     listaAutomovil[index].estado= 1;
@@ -375,10 +375,9 @@ int copiarVehiculos(sAutomovil listaAutomoviles[], sAutomovil historialAutos[], 
     int i;
     for (i= 0; i < tam; i++)
     {
-        if(listaAutomoviles[i].estado == 1)
-        {
+
             historialAutos[i] = listaAutomoviles[i];
-        }
+
     }
     return 1;
 }
@@ -387,7 +386,7 @@ int agregarHistorialVehiculos(sAutomovil historialAutos[], int maxHistorial, int
     int indexHistorial;
     //printf("cant historial //  %d\n", indexHistorial);
     indexHistorial= autosBuscarLugarLibre(historialAutos, maxHistorial);
-    printf("historial guard pos // %d\n", indexHistorial);
+    //printf("historial guard pos // %d\n", indexHistorial);
     historialAutos[indexHistorial].idPropietario= idPropietario;
     historialAutos[indexHistorial].marca= marca;
     historialAutos[indexHistorial].estado= 1;

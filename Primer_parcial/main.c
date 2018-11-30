@@ -37,14 +37,13 @@ int main()
     sAutomovil historialAutos[HISTORIAL_AUTOS];
 
     inicializarPropEstado(listaPropietarios,CANT_PROP);
-    //inicializarPropietariosHardcoded(listaPropietarios);
     inicializarAutosEstado(listaAutomoviles,LUGAR_DISP);
     inicializarAutosEstado(historialAutos,HISTORIAL_AUTOS);
-    //iniciarAutosHardcoded(listaAutomoviles);
+
 
     do
     {
-        //copiarVehiculosHistorial(listaAutomoviles, historialAutos, HISTORIAL_AUTOS);
+        fflush(stdin);
         opcion= mostrarMenu();
         switch(opcion)
         {

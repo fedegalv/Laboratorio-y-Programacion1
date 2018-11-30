@@ -97,7 +97,7 @@
 	"Funciones_aux.h"
 	"Propietarios.h"
 
-1543540663 source:e:\programacion\laboratorio-y-programacion1\primer_parcial\automoviles.c
+1543542339 source:e:\programacion\laboratorio-y-programacion1\primer_parcial\automoviles.c
 	<stdio.h>
 	<stdlib.h>
 	"string.h"
@@ -128,7 +128,7 @@
 	"Propietarios.h"
 	"Funciones_aux.h"
 
-1543530167 source:e:\programacion\laboratorio-y-programacion1\primer_parcial\main.c
+1543542460 source:e:\programacion\laboratorio-y-programacion1\primer_parcial\main.c
 	<stdio.h>
 	<stdlib.h>
 	"Propietarios.h"
@@ -136,7 +136,7 @@
 	"Funciones_aux.h"
 	"menu.h"
 
-1543540347 source:e:\programacion\laboratorio-y-programacion1\primer_parcial\menu.c
+1543542368 source:e:\programacion\laboratorio-y-programacion1\primer_parcial\menu.c
 	<stdio.h>
 	<stdlib.h>
 	"string.h"
