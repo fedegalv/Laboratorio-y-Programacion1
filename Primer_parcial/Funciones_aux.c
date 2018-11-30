@@ -18,7 +18,9 @@ int mostrarMenu(void)
                "\n8- RECAUDACION TOTAL ESTACIONAMIENTO"
                "\n9- RECAUDACION POR MARCA"
                "\n10- AUTOS POR PROPIETARIOS"
-               "\n11- LISTADO DE AUTOS AUDI\n"
+               "\n11- LISTADO DE AUTOS AUDI"
+               "\n12- LISTADO DE AUTOS ESTACIONADO CON LOS DATOS DE  SUS PROPIETARIOS, ORDENADO POR PATENTE"
+               "\n13- SALIR DEL PROGRAMA\n"
                "\nOPCIONES SELECCIONADA: ");
         scanf("%d",&opcion);
         return opcion;

@@ -301,9 +301,6 @@ void mostrarNombrePropietario(sPropietario listaPropietarios[], int idProvista, 
 }
 void mostrarPropietario(sPropietario listaPropietarios[], int idProvista)
 {
-    printf("%s %5s %15s %20s %20s\n","ID","NOMBRE", "APELLIDO","DIRECCION","NUMERO TARJETA");
-
-
     printf("%d %5s %15s %20s %20s \n",listaPropietarios[idProvista].idPropietario,listaPropietarios[idProvista].nombre,
                listaPropietarios[idProvista].apellido, listaPropietarios[idProvista].direccion, listaPropietarios[idProvista].numeroTarjeta);
 
@@ -313,7 +310,7 @@ void mostrarPropietario(sPropietario listaPropietarios[], int idProvista)
 int buscarIndexEnLista(sPropietario listaPropietarios[], int tam, int idProvista)
 {
     int i;
-    int index;
+    int index= -1;
     for(i=0; i< tam; i++)
     {
         if(listaPropietarios[i].idPropietario == idProvista)
