@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1554391073 source:d:\galvan\2019\clases\clase5_04_04\vectores_4_4\main.c
+	<stdio.h>
+	<stdlib.h>
+	"string.h"
+

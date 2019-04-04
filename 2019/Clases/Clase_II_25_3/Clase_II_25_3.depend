@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1553784920 source:d:\galvan\2019\clases\clase_ii_25_3\biblioteca.c
+	<stdio.h>
+	<stdlib.h>
+
+1553785190 source:d:\galvan\2019\clases\clase_ii_25_3\main.c
+	<stdio.h>
+	<stdlib.h>
+	"string.h"
+	"biblioteca.h"
+
+1553784627 d:\galvan\2019\clases\clase_ii_25_3\biblioteca.h
+

@@ -1,21 +1,23 @@
 # depslib dependency file v1.0
-1539266077 source:d:\galvan\laboratorio-y-programacion1\parcial\primer_parcial\funciones_aux.c
+1553168454 source:d:\galvan\laboratorio-y-programacion1\parcial\primer_parcial\funciones_aux.c
 	<stdio.h>
 	<stdlib.h>
 	"string.h"
 	<ctype.h>
+	<time.h>
 
-1539270033 source:d:\galvan\laboratorio-y-programacion1\parcial\primer_parcial\main.c
+1553168454 source:d:\galvan\laboratorio-y-programacion1\parcial\primer_parcial\main.c
 	<stdio.h>
 	<stdlib.h>
 	"Propietarios.h"
+	"Automoviles.h"
 	"Funciones_aux.h"
 
-1539267787 d:\galvan\laboratorio-y-programacion1\parcial\primer_parcial\propietarios.h
+1553168454 d:\galvan\laboratorio-y-programacion1\parcial\primer_parcial\propietarios.h
 
-1539265392 d:\galvan\laboratorio-y-programacion1\parcial\primer_parcial\funciones_aux.h
+1553168454 d:\galvan\laboratorio-y-programacion1\parcial\primer_parcial\funciones_aux.h
 
-1539269602 source:d:\galvan\laboratorio-y-programacion1\parcial\primer_parcial\propietarios.c
+1553176932 source:d:\galvan\laboratorio-y-programacion1\parcial\primer_parcial\propietarios.c
 	<stdio.h>
 	<stdlib.h>
 	"string.h"
@@ -59,4 +61,15 @@
 	"Propietarios.h"
 
 1539314681 e:\programacion\laboratorio-y-programacion1\parcial\primer_parcial\automoviles.h
+
+1553168454 source:d:\galvan\laboratorio-y-programacion1\parcial\primer_parcial\automoviles.c
+	<stdio.h>
+	<stdlib.h>
+	"string.h"
+	<ctype.h>
+	"Automoviles.h"
+	"Funciones_aux.h"
+	"Propietarios.h"
+
+1553168454 d:\galvan\laboratorio-y-programacion1\parcial\primer_parcial\automoviles.h
 
