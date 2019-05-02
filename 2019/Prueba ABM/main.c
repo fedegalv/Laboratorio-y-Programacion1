@@ -4,18 +4,57 @@
 #include <ctype.h>
 #define T 2
 void cargarDatos(char [][50], char [][50], int[], int[]);
+int menuOpcion(void );
+int bajas();
 void mostrarDatos(char nombre[][50], char apellido[][50], int edad[], int nota[]);
 int getString(char mensaje[], char input[]);
 int verificarCadena(char cadena[51]);
 int esSoloLetras(char palabra[]);
+int buscar( char mensaje[], char cadena[][50], int tam);
+
 int main()
 {
     char nombre[T][50];
     char apellido[T][50];
     int edad[T];
     int nota[T];
+    int opcion=0;
+    int idEncontrado;
+    do{
+        opcion= menuOpcion();
+       switch(opcion)
+        {
+            case 1:
+                cargarDatos(nombre,apellido,edad, nota);
+                fflush(stdin);
+                break;
+            case 2:
+                fflush(stdin);
+                idEncontrado= buscar("\nIngrese nombre para dar de baja: ", nombre, T);
+                if(idEncontrado != -1)
+                {
+                    nota[idEncontrado]= -1; // BAJA LOGICA
+                    printf("BAJA COMPLETADA");
+                }
+                break;
+            case 3:
+                fflush(stdin);
+                idEncontrado= buscar("\nIngrese nombre para modificar: ", nombre, T);
+                if(idEncontrado != -1)
+                {
+                    printf("\nINGRESE NOMBRE NUEVO: ");
+                    gets(nombre[idEncontrado]);
+                    printf("CAMBIO EXITOSO\n");
+                }
+                break;
+            case 4:
+                mostrarDatos(nombre,apellido,edad,nota );
+                break;
 
-    cargarDatos(nombre,apellido,edad, nota);
+        }
+        fflush(stdin);
+    }while(opcion != 5);
+
     /*
     char nombre[T][50]= {"Mariana", "Julio", "Ricardo", "Daniel"};
     char apellido[T][50]= {"Calgr", "Roca", "Pelok", " York"};
@@ -35,7 +74,7 @@ void cargarDatos(char nombre[][50], char apellido[][50], int edad[], int nota[])
     {
         //printf("\nIngrese nombre: ");
         //gets(nombre[i]);
-        getString("Ingrese nombre: ", nombre[i]);
+        getString("\nIngrese nombre: ", nombre[i]);
         //esSoloLetras(nombre[i]);
         verificarCadena(nombre[i]);
         printf("\nIngrese apellido: ");
@@ -57,7 +96,11 @@ void mostrarDatos(char nombre[][50], char apellido[][50], int edad[], int nota[]
     printf("%20s %20s %6s %6s \n", "Nombre","Apellido","Edad", "Nota");
     for (i= 0; i< T;i++)
     {
-        printf("%20s %20s %6d %6d\n", nombre[i], apellido[i],edad[i],nota[i]);
+        if(nota[i] != -1)
+        {
+            printf("%20s %20s %6d %6d\n", nombre[i], apellido[i],edad[i],nota[i]);
+        }
+
     }
 }
 int getString(char mensaje[], char input[])
@@ -101,26 +144,38 @@ int verificarCadena(char cadena[51])
 
     return 0;
 }
-
-int esSoloLetras(char palabra[])
+int menuOpcion(void)
 {
-    int i;
-    int flag= 0;
-    for(i=0; i< strlen(palabra); i++);
-    if( palabra[i] != ' ')
+    int opcion;
+    printf("Menu opciones: \n"
+           "1- ALTAS\n"
+           "2- BAJAS\n"
+           "3- MODIFICACION\n"
+           "4- MOSTRAR\n"
+           "5- SALIR\n"
+           "OPCION: ");
+    scanf("%d", &opcion);
+
+
+    return opcion;
+}
+int buscar(char mensaje[], char cadena[][50],int tam)
+{
+    char cadenaAux[50];
+    int encontrado= -1;
+    //printf("Ingrese nombre a buscar: ");
+    printf(mensaje);
+    gets(cadenaAux);
+    for(int i= 0; i < tam; i++)
     {
-        if(palabra[i] < 'a' || palabra[i] > 'z')
+        if(strcmp(cadenaAux, cadena[i])== 0)
         {
-            if(palabra[i] < 'A' || palabra[i] > 'Z')
-            {
-                flag= 1;
-            }
-            else{flag=1;}
+            printf("ID ENCONTRADO\n");
+            encontrado = i;
+            break;
         }
     }
-    if(flag == 0)
-    {
-        printf("\nINGRESO UN CARACTER INVALIDO");
-    }
-    return flag;
+    return encontrado;
 }
+
+

@@ -1,0 +1,24 @@
+# depslib dependency file v1.0
+1556680169 source:e:\programacion\laboratorio-y-programacion2019\laboratorio-y-programacion1-master\2019\practica_primerparcial_numero2\funcionesaux.c
+	<stdio.h>
+	<stdlib.h>
+	"string.h"
+	"ctype.h"
+	"funcionesAux.h"
+
+1556679148 source:e:\programacion\laboratorio-y-programacion2019\laboratorio-y-programacion1-master\2019\practica_primerparcial_numero2\informes.c
+	"informes.h"
+
+1556678261 e:\programacion\laboratorio-y-programacion2019\laboratorio-y-programacion1-master\2019\practica_primerparcial_numero2\informes.h
+
+1556679148 source:e:\programacion\laboratorio-y-programacion2019\laboratorio-y-programacion1-master\2019\practica_primerparcial_numero2\pantallas.c
+
+1556679148 source:e:\programacion\laboratorio-y-programacion2019\laboratorio-y-programacion1-master\2019\practica_primerparcial_numero2\publicidad.c
+
+1556680144 source:e:\programacion\laboratorio-y-programacion2019\laboratorio-y-programacion1-master\2019\practica_primerparcial_numero2\main.c
+	<stdio.h>
+	<stdlib.h>
+	"funcionesAux.h"
+
+1556679584 e:\programacion\laboratorio-y-programacion2019\laboratorio-y-programacion1-master\2019\practica_primerparcial_numero2\funcionesaux.h
+

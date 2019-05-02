@@ -1,0 +1,21 @@
+# depslib dependency file v1.0
+1556204353 source:d:\galvan\laboratorio-y-programacion1\2019\clases\25_04\25_04_clase\main.c
+	<stdio.h>
+	<stdlib.h>
+	"producto.h"
+
+1556204886 d:\galvan\laboratorio-y-programacion1\2019\clases\25_04\25_04_clase\producto.h
+
+1556198683 source:d:\galvan\laboratorio-y-programacion1\2019\clases\25_04\25_04_clase\producto.c
+	<stdio.h>
+	<stdlib.h>
+	"string.h"
+	"producto.h"
+
+1556204353 source:e:\programacion\laboratorio-y-programacion2019\laboratorio-y-programacion1-master\2019\clases\25_04\25_04_clase\main.c
+	<stdio.h>
+	<stdlib.h>
+	"producto.h"
+
+1556204886 e:\programacion\laboratorio-y-programacion2019\laboratorio-y-programacion1-master\2019\clases\25_04\25_04_clase\producto.h
+

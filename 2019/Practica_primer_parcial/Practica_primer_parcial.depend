@@ -1,0 +1,56 @@
+# depslib dependency file v1.0
+1556663193 source:e:\programacion\laboratorio-y-programacion2019\laboratorio-y-programacion1-master\2019\practica_primer_parcial\avisos.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"avisos.h"
+	"clientes.h"
+	"FuncionesAux.h"
+
+1556662248 source:e:\programacion\laboratorio-y-programacion2019\laboratorio-y-programacion1-master\2019\practica_primer_parcial\informes.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"avisos.h"
+	"clientes.h"
+	"FuncionesAux.h"
+	"informes.h"
+
+1556592184 source:e:\programacion\laboratorio-y-programacion2019\laboratorio-y-programacion1-master\2019\practica_primer_parcial\main.c
+	<stdio.h>
+	<stdlib.h>
+	"clientes.h"
+	"avisos.h"
+	"informes.h"
+	"FuncionesAux.h"
+
+1555526889 e:\programacion\laboratorio-y-programacion2019\laboratorio-y-programacion1-master\2019\practica_primer_parcial\clientes.h
+
+1555530926 e:\programacion\laboratorio-y-programacion2019\laboratorio-y-programacion1-master\2019\practica_primer_parcial\avisos.h
+	"clientes.h"
+
+1556592051 e:\programacion\laboratorio-y-programacion2019\laboratorio-y-programacion1-master\2019\practica_primer_parcial\informes.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"avisos.h"
+	"clientes.h"
+	"FuncionesAux.h"
+
+1555384086 e:\programacion\laboratorio-y-programacion2019\laboratorio-y-programacion1-master\2019\practica_primer_parcial\funcionesaux.h
+
+1555527619 source:e:\programacion\laboratorio-y-programacion2019\laboratorio-y-programacion1-master\2019\practica_primer_parcial\clientes.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"clientes.h"
+	"FuncionesAux.h"
+
+1555524115 source:e:\programacion\laboratorio-y-programacion2019\laboratorio-y-programacion1-master\2019\practica_primer_parcial\funcionesaux.c
+	<stdio.h>
+	<stdlib.h>
+	"string.h"
+	<ctype.h>
+	<time.h>
+	"clientes.h"
+

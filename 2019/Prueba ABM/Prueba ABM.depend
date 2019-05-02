@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1555364553 source:e:\programacion\laboratorio-y-programacion2019\laboratorio-y-programacion1-master\2019\prueba abm\main.c
+	<stdio.h>
+	<stdlib.h>
+	"string.h"
+	<ctype.h>
+

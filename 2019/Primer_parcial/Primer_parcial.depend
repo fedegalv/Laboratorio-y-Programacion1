@@ -1,0 +1,15 @@
+# depslib dependency file v1.0
+1556680254 source:e:\programacion\laboratorio-y-programacion2019\laboratorio-y-programacion1-master\2019\primer_parcial\funcionesaux.c
+	<stdio.h>
+	<stdlib.h>
+	"string.h"
+	"ctype.h"
+	"funcionesAux.h"
+
+1556680254 e:\programacion\laboratorio-y-programacion2019\laboratorio-y-programacion1-master\2019\primer_parcial\funcionesaux.h
+
+1556680373 source:e:\programacion\laboratorio-y-programacion2019\laboratorio-y-programacion1-master\2019\primer_parcial\main.c
+	<stdio.h>
+	<stdlib.h>
+	"funcionesAux.h"
+
